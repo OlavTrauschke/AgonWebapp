@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Kalender</title>
+        <link rel="stylesheet" type="text/css" href="/style/kalender.css" />
+        <script src="/scripts/kalender.js"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+
+    <body onLoad="init()">
+
+        <img src="/images/kalenderTop.jpg" alt="Roeipanorama" id="topFoto" /><!--
+          This is a comment to have the whitespace between the inline element above
+          and the block element below ignored
+        --><div id="content">
+            <iframe id="calendar"
+                src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=srvagon.nl_2us35q78eautlar077m21uf494%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FAmsterdam">
+            </iframe>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,10 @@
+@import url(contentBase.css);
+
+#topFoto {
+    display: block;
+}
+
+#calendar {
+    border-style: none;
+    width: 100%;
+}

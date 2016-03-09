@@ -1,0 +1,38 @@
+@import url(base.css);
+
+body {
+    background-color: white;
+}
+
+#content {
+    padding: 1%;
+    width: 98%;
+}
+
+#topFoto {
+    width: 100%;
+}
+
+h1, h2, p {
+    clear: left;
+}
+
+h1 {
+    font-family: Copperplate, "Copperplate Gothic Light", 'Balthazar', serif;
+    margin-bottom: 0%;
+}
+
+h2 {
+    font-family: "Myriad Pro", "PT Sans", Helvetica, sans-serif;
+    font-size: medium;
+    color: grey;
+}
+
+a {
+    /*links in Agon-blauw*/
+    color: #1B2EA1;
+}
+
+.error {
+    color: red;
+}

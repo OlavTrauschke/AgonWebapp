@@ -1,0 +1,19 @@
+@import url("contentBase.css");
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+@import url(https://fonts.googleapis.com/css?family=Balthazar);
+
+article {
+    width: 100%;
+    position: relative;
+}
+
+.newsPhoto {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    display: none;
+}
+
+p {
+    width: 49%;
+}

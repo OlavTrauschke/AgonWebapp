@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <title>Nieuws</title>
+        <link rel="stylesheet" type="text/css" href="/style/home.css" />
+        <script src="/scripts/internalLinks.js"></script>
+        <script src="/scripts/home.js"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    
+    <body onLoad="init()">
+        
+        <img src="/images/homeTop.jpg" alt="Roeipanorama" id="topFoto" />
+        
+        <div id="content">
+            
+            <p>Meteen lid worden? Ga naar <a href="#" onClick="goToInschrijfformulier()">het aanmeldingsformulier</a>.</p>
+            
+            <!--Kopieer onderstaand format om een nieuwsbericht toe te voegen. Plaats nieuws altijd direct onder dit format.
+            <article>
+                <h1>[Titel nieuwsbericht]</h1><br />
+                <h2>Door: [auteur] Op: [dag] [maand] [jaar]</h2>
+                <p>
+                    [Tekst hier. Gebruik evt, "<br />" om naar een nieuwe regel te gaan; enters worden genegeerd.
+                    Vreemde tekens als <, >, /, \ en & worden als je deze gewoon typt niet goed weergegeven.
+                    Gebruik in plaats daarvan "&[Name];", waarbij je de name van het teken haalt uit een lijst
+                    als die op https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references.
+                    Een & wordt zo bijvoorbeeld "&amp;".]
+                </p>
+                <img src="/images/nieuws/[bestandsnaam foto of afbeelding]" alt="[KORTE beschrijving foto]" class="newsPhoto" />
+            </article>
+
+            <hr />
+        Einde format nieuwsbericht. N.b. zinloos grote foto's maken de pagina traag. Breder dan 40% van 1080, dus 432px is bovendien zinloos.-->
+
+            <article>
+                <h1>Voorbeeld nieuws</h1>
+                <h2>Door: Olav Trauschke Op: 22 januari 2016</h2>
+                <p>
+                    Dit is een voorbeeld van een nieuwsbericht met een<br />
+                    regelovergang, een<br />
+                    <br />
+                    witregel &amp; een vreemd teken.
+                </p>
+                <img src="/images/nieuws/tvFlevoland.png" alt="Oprichter Myrna Eussen & voorzitter Daphne Schoenmakers bij TV Flevoland" class="newsPhoto" />
+            </article>
+
+            <hr />
+
+            <article>
+                <h1>Nog een voorbeeld</h1>
+                <h2>Door: Olav Trauschke Op: 22 januari 2016</h2>
+                <p>
+                    Dit keer wat meer tekst om te laten zien hoe de uitlijning werkt. Zoals ik net al schreef
+                    worden enters genegeerd en kun je die dus gewoon gebruiken om het bestand leesbaar te houden
+                    zoals ik hier ook doe. Als ik echt naar een nieuwe regel wil dan gebruik ik &lt;br /&gt;.<br />
+                    <br />
+                    Dit kan zoals je hier boven ziet ook twee keer, om een witregel in te voegen. Echter is het netter
+                    en gebruikelijker om dan de alinea te sluiten met &lt;/p&gt; en dan weer een nieuwe alinea te beginnen
+                    met &lt;p&gt;. Merk tevens op dat een foto groter wordt weergegeven naast een langer nieuwsbericht,
+                    zodat hij er mooi naast blijft passen, tenzij de tekst zo lang wordt, dat de foto daar te breed van zou worden.
+                </p>
+                <img src="/images/nieuws/tvFlevoland.png" alt="Oprichter Myrna Eussen & voorzitter Daphne Schoenmakers bij TV Flevoland" class="newsPhoto" />
+            </article>
+
+            <hr />
+
+            <article>
+                <h1>Lang artikel</h1>
+                <h2>Door: Olav Trauschke Op: 22 januari 2016</h2>
+                <p>
+                    En nu nog een heel lang artikel, ja, weer met dezelfde foto, om even te laten zien dat
+                    scrollen ook werkt. Overigens kun je natuurlijk ook gewoon alle foto's even breed laten zijn,
+                    dat gebeurd vanzelf als je zorg dat de foto's niet hoger zijn dan de tekst. Alleen als dat het
+                    geval is, zoals ik hier ter demonstratie zo heb gelaten, worden de foto's geschaald om niet
+                    hoger te zijn dan de tekst. Anders zijn ze gewoon allemaal 49% van de pagina breed.
+
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                    Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+                    Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+                    Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+                    Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+                    Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
+                    Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
+                </p>
+                <img src="/images/nieuws/tvFlevoland.png" alt="Oprichter Myrna Eussen & voorzitter Daphne Schoenmakers bij TV Flevoland" class="newsPhoto" />
+            </article>
+            
+        </div>
+    </body>
+</html>
