@@ -19,7 +19,7 @@ iframe {
     border-style: none;
 }
 
-p {
+p, li {
     font-family: "Myriad Pro", "PT Sans", Helvetica, sans-serif;
 }
 
