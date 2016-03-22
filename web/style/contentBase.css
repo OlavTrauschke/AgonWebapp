@@ -17,6 +17,10 @@ h1, h2, p {
     clear: left;
 }
 
+.emphasized {
+    font-weight: bold;
+}
+
 h1 {
     font-family: Copperplate, "Copperplate Gothic Light", 'Balthazar', serif;
     margin-bottom: 0%;
