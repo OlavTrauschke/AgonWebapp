@@ -1,0 +1,13 @@
+@import url("contentBase.css");
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+@import url(https://fonts.googleapis.com/css?family=Balthazar);
+
+.groepsfoto {
+    max-width: 100%;
+    max-height: 500px;
+}
+
+.portretfoto {
+    max-width: 100%;
+    max-height: 250px;
+}
