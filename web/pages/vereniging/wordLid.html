@@ -4,7 +4,8 @@
 
     <head>
         <title>Vereniging - Word Lid!</title>
-        <link rel="stylesheet" type="text/css" href="/style/contentBase.css" />
+        <link rel="stylesheet" type="text/css" href="/style/form.css" />
+        <script src="/scripts/hideForm.js"></script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
@@ -38,10 +39,6 @@
                 <li>Verbetering in samenwerken, focus en presteren</li>
             </ul>
             
-            <p>
-                <!--TODO Olav aanmeldingsformulier toevoegen-->
-            </p>
-
             <h1>Introductieactiviteiten</h1>
             <p>
                 We hebben regelmatig open roeiavonden en introductieweekenden.
@@ -90,6 +87,121 @@
                 Als meerdere leden op een adres wonen krijgt men vanaf het tweede lid 15 korting;
                 Er geldt een veprlichte bijdrage voor de KNRB, wanneer je lid bent bij twee roeiverenigingen wordt deze bijdrage slechts bij een vereniging ge&iuml;nd.
             </p>
+            
+            <form onsubmit="hideForm(this);">
+                
+                <fieldset>
+                    <legend>NAW-gegevens:</legend>
+                    
+                    <label for="voornaam">Voornaam: </label>
+                    <input type="text" id="voornaam" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="achternaam">Achternaam: </label>
+                    <input type="text" id="achternaam" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="geboortedatum">Geboortedatum: </label>
+                    <input type="text" id="geboortedatum" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="straatnaam">Straatnaam: </label>
+                    <input type="text" id="straatnaam" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="huisnummer">Huisnummer: </label>
+                    <input type="text" id="huisnummer" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="postcode">Postcode: </label>
+                    <input type="text" id="postcode" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="woonplaats">Woonplaats: </label>
+                    <input type="text" id="woonplaats" class="textInput" required /><br />
+                    <br />
+                </fieldset>
+                
+                <br />
+                
+                <fieldset>
+                    <legend>Inschrijving:</legend>
+                    
+                    <label for="datumInschrijving">Datum inschrijving: </label>
+                    <input type="text" id="datumInschrijving" class="textInput" required /><br />
+                    <br />
+                </fieldset>
+                
+                <br />
+                
+                <fieldset>
+                    <legend>Contactgegevens:</legend>
+                    
+                    <label for="telefoonnummer">Mobiel nummer: </label>
+                    <input type="text" id="telefoonnummer" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="noodnummer">Nummer in geval van nood: </label>
+                    <input type="text" id="noodnummer" class="textInput" required /><br />
+                    <br />
+                    
+                </fieldset>
+                
+                <br />
+                
+                <fieldset>
+                    <legend>Betalingsgegevens:</legend>
+                    
+                    <label for="iban">Bankrekeningnummer (IBAN): </label>
+                    <input type="text" id="iban" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="rekeninghouder">Rekeninghouder: </label>
+                    <input type="text" id="rekeninghouder" class="textInput" required /><br />
+                    <br />
+                    <!--TODO radiobuttons uitlijnen-->
+                    <p>Betaalperiode: </p>
+                    <label for="jaar">Jaarlijks</label>
+                        <input type="radio"
+                               name="betaalperiode"
+                               value="jaar"
+                               id="jaar"
+                        /><br />
+                    <label for="halfJaar">Halfjaarlijks</label>
+                        <input type="radio"
+                            name="betaalperiode"
+                            value="halfJaar"
+                               id="halfJaar"
+                        /><br />
+                    <label for="kwartaal">Per kwartaal</label>
+                        <input type="radio"
+                               name="betaalperiode"
+                               value="kwartaal"
+                               id="kwartaal"
+                        /><br />
+                        <label for="tweeMaanden">Per twee maanden</label>
+                            <input type="radio"
+                                   name="betaalperiode"
+                                   value="tweeMaanden"
+                                   id="tweeMaanden"
+                            /><br />
+                            <label for="maandelijks">Maandelijks</label>
+                            <input type="radio"
+                                   name="betaalperiode"
+                                   value="maandelijks"
+                                   id="maandelijks"
+                            /><br />
+                </fieldset>
+                
+                <!--TODO formulier afmaken-->
+                
+            </form>
+            
+            <p id="formAlt">
+                Het formulier is verstuurd. Wij nemen zo spoedig mogelijk contact met u op.
+            </p>
+            <!--TODO pas weergeven na verzending-->
+            
         </div>
 
     </body>
