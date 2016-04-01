@@ -9,3 +9,7 @@ function goToContactformulier() {
 function goToInschrijfformulier() {
     window.parent.goToInschrijfformulier();
 }
+
+function goToVideos() {
+    window.parent.goToVideos();
+}

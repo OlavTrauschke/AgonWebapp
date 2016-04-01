@@ -170,3 +170,7 @@ function goToContactformulier() {
 function goToInschrijfformulier() {
     window.location.hash = "VerenigingWordLid";
 }
+
+function goToVideos() {
+    window.location.hash = "MediaVideos";
+}
