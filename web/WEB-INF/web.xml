@@ -12,6 +12,7 @@
         </session-timeout>
     </session-config>
     
+    <!--TODO log in systeem maken
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>USERS</web-resource-name>
@@ -49,5 +50,5 @@
             <form-error-page>/login?failed</form-error-page>
         </form-login-config>
     </login-config>
-    
+    -->
 </web-app>
