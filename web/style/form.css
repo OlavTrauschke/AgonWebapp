@@ -9,11 +9,12 @@ textarea {
     width: 100%;
 }
 
-input {
-    float: right;
-}
-
 .textInput {
+    float: right;
     width: 40%;
     min-width: 10em;
+}
+
+#formAlt {
+    display: none;
 }

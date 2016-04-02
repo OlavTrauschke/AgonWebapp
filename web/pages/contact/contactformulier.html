@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="/style/form.css" />
         <script src="/scripts/internalLinks.js"></script>
         <script src="/scripts/hideForm.js"></script>
+        <script src="/scripts/jquery-1.12.2.min.js"></script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
@@ -21,7 +22,7 @@
                 Gebruik dit formulier om contact op te nemen voor vragen en/of opmerkingen.<br />
                 Wil je je inschrijven? Gebruik dan het <a href="#" onclick="goToInschrijfformulier()">inschrijfformulier</a>.
             </p>
-            <form onsubmit="hideForm(this);">
+            <form onsubmit="hideForm(event, this);">
                 
                 <fieldset>
                     <legend>Contactinformatie:</legend>
@@ -54,7 +55,6 @@
             <p id="formAlt">
                 Het formulier is verstuurd. Wij nemen zo spoedig mogelijk contact met u op.
             </p>
-            <!--TODO pas weergeven na verzending-->
             
         </div>
 
