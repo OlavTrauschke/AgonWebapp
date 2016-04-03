@@ -22,7 +22,7 @@
                 Gebruik dit formulier om contact op te nemen voor vragen en/of opmerkingen.<br />
                 Wil je je inschrijven? Gebruik dan het <a href="#" onclick="goToInschrijfformulier()">inschrijfformulier</a>.
             </p>
-            <form onsubmit="hideForm(event, this);">
+            <form onsubmit="processForm(event, this);">
                 
                 <fieldset>
                     <legend>Contactinformatie:</legend>
@@ -52,8 +52,16 @@
                 
             </form>
             
-            <p id="formAlt">
-                Het formulier is verstuurd. Wij nemen zo spoedig mogelijk contact met u op.
+            <p id="formSuccess">
+                Het formulier is succesvol verstuurd. Wij nemen zo spoedig
+                mogelijk contact met u op.
+            </p>
+            
+            <p id="formError">
+                Helaas is het formulier niet succesvol verstuurd. Probeert u het
+                alstublieft opnieuw, of neemt u op een andere manier contact met
+                ons op. Wij stellen het op prijs als u hierbij vermeldt dat u
+                problemen heeft ondervonden met de verzending van dit formulier.
             </p>
             
         </div>

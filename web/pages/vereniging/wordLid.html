@@ -88,7 +88,9 @@
                 Er geldt een veprlichte bijdrage voor de KNRB, wanneer je lid bent bij twee roeiverenigingen wordt deze bijdrage slechts bij een vereniging ge&iuml;nd.
             </p>
             
-            <form onsubmit="hideForm(event, this);">
+            <!--TODO samenvatting statuten en HR toevoegen zoals op papieren inschrijfformulier-->
+            
+            <form onsubmit="processForm(event, this);">
                 
                 <fieldset>
                     <legend>NAW-gegevens:</legend>
@@ -102,7 +104,7 @@
                     <br />
                     
                     <label for="geboortedatum">Geboortedatum: </label>
-                    <input type="text" id="geboortedatum" class="textInput" required /><br />
+                    <input type="date" id="geboortedatum" class="textInput" required /><br />
                     <br />
                     
                     <label for="straatnaam">Straatnaam: </label>
@@ -128,7 +130,7 @@
                     <legend>Inschrijving:</legend>
                     
                     <label for="datumInschrijving">Datum inschrijving: </label>
-                    <input type="text" id="datumInschrijving" class="textInput" required /><br />
+                    <input type="date" id="datumInschrijving" class="textInput" required /><br />
                     <br />
                 </fieldset>
                 
@@ -138,13 +140,12 @@
                     <legend>Contactgegevens:</legend>
                     
                     <label for="telefoonnummer">Mobiel nummer: </label>
-                    <input type="text" id="telefoonnummer" class="textInput" required /><br />
+                    <input type="tel" id="telefoonnummer" class="textInput" required /><br />
                     <br />
                     
                     <label for="noodnummer">Nummer in geval van nood: </label>
-                    <input type="text" id="noodnummer" class="textInput" required /><br />
+                    <input type="tel" id="noodnummer" class="textInput" required /><br />
                     <br />
-                    
                 </fieldset>
                 
                 <br />
@@ -165,6 +166,7 @@
                                name="betaalperiode"
                                value="jaar"
                                id="jaar"
+                               required
                         />
                         <label for="jaar">Jaarlijks</label><br />
                         <input type="radio"
@@ -191,14 +193,179 @@
                                id="maandelijks"
                             />
                         <label for="maandelijks">Maandelijks</label><br />
+                        <br />
                 </fieldset>
                 
-                <!--TODO formulier afmaken-->
+                <br />
+                
+                <fieldset>
+                    <legend>Studie:</legend>
+                    
+                    <label for="studie">Studie: </label>
+                    <input type="text" id="studie" class="textInput" /><br />
+                    <br />
+                    
+                    <label for="studiejaar">Studiejaar: </label>
+                    <input type="number" id="studiejaar" class="textInput" /><br />
+                    <br />
+                    
+                    <label for="instelling">Onderwijsinstelling: </label>
+                    <input type="text" id="instelling" class="textInput" /><br />
+                    <br />
+
+                    <label for="beroep">Beroep: </label>
+                    <input type="text" id="beroep" class="textInput" /><br />
+                    <br />
+                </fieldset>
+                
+                <br />
+                
+                <fieldset>
+                    <legend>Gegevens ouder/voogd bij leden jonger dan 18 jaar:</legend>
+                    
+                    <label for="ouderNaam">Naam: </label>
+                    <input type="text" id="ouderNaam" class="textInput" /><br />
+                    <br />
+                    
+                    <label for="straatnaamOuder">Straatnaam: </label>
+                    <input type="text" id="straatnaamOuder" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="huisnummerOuder">Huisnummer: </label>
+                    <input type="text" id="huisnummerOuder" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="postcodeOuder">Postcode: </label>
+                    <input type="text" id="postcodeOuder" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="woonplaatsOuder">Woonplaats: </label>
+                    <input type="text" id="woonplaatsOuder" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="telefoonnummerOuder">Telefoon: </label>
+                    <input type="tel" id="telefoonnummerOuder" class="textInput" required /><br />
+                    <br />
+                </fieldset>
+                
+                <br />
+                
+                <fieldset>
+                    <legend>Roei-gerelateerde informatie (optioneel):</legend>
+                    
+                    <p>Gewicht in kg: </p>
+                        <input type="radio"
+                               name="gewicht"
+                               value="<55"
+                               id="55"
+                        />
+                        <label for="55">&lt;55</label><br />
+                        <input type="radio"
+                               name="gewicht"
+                               value="55-70"
+                               id="70"
+                        />
+                        <label for="70">70-85</label><br />
+                        <input type="radio"
+                               name="gewicht"
+                               value="70-85"
+                               id="85"
+                        />
+                        <label for="85">70-85</label><br />
+                        <input type="radio"
+                               name="gewicht"
+                               value="85-100"
+                               id="100"
+                        />
+                        <label for="100">85-100</label><br />
+                        <input type="radio"
+                               name="gewicht"
+                               value=">100"
+                               id="more"
+                        />
+                        <label for="more">&gt;100</label><br />
+                        <br />
+                        
+                    <label for="ervaring">Eerder roei-ervaring: </label>
+                    <input type="text" id="ervaring" class="textInput" /><br />
+                    <br />
+                    
+                    <label for="doelen">Doelen bij het roeien: </label>
+                    <input type="text" id="doelen" class="textInput" /><br />
+                    <br />
+                </fieldset>
+                
+                <br />
+                
+                <fieldset>
+                    <p>Hoe ken je A.S.R.V. Agon? (optioneel) </p>
+                        <input type="radio"
+                               name="referentie"
+                               value="websiteAgon"
+                               id="websiteAgon"
+                        />
+                        <label for="websiteAgon">Via website A.S.R.V. Agon</label><br />
+                        
+                        <input type="radio"
+                               name="referentie"
+                               value="websitePampus"
+                               id="websitePampus"
+                        />
+                        <label for="websitePampus">Via website R.V. Pampus</label><br />
+                        
+                        <input type="radio"
+                               name="referentie"
+                               value="facebook"
+                               id="facebook"
+                        />
+                        <label for="facebook">Via Facebook</label><br />
+                        
+                        <input type="radio"
+                               name="referentie"
+                               value="vrienden"
+                               id="vrienden"
+                        />
+                        <label for="vrienden">Via vrienden/kennissen</label><br />
+                        
+                        <input type="radio"
+                               name="referentie"
+                               value="anders"
+                               id="anders"
+                        />
+                        <label for="anders">Anders, namelijk </label>
+                        <input type="text" id="andereReferentie" class="textInputNotFloating" /><br />
+                        <br />
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Verzending:</legend>
+                    
+                    <p>
+                        De verzender van dit formulier verklaart verklaart voldoende
+                        op de hoogte te zijn van de inhoud van de statuten, het
+                        huishoudelijk reglement en eventuele aanvullende reglementen
+                        van zowel de vereniging A.S.R.V. Agon als de vereniging
+                        R.V. Pampus en door verzending van dit formulier een verzoek
+                        tot lidmaatschap te doen, zoals bedoeld in artikel 3 van het
+                        huishoudelijk reglement van A.S.R.V. Agon.
+                        <!--TODO links statuten en HR toevoegen-->
+                    </p>
+                    
+                    <!--TODO plaats, datum en submit toevoegen-->
+                </fieldset>
                 
             </form>
             
-            <p id="formAlt">
-                Het formulier is verstuurd. Wij nemen zo spoedig mogelijk contact met u op.
+            <p id="formSuccess">
+                Het formulier is succesvol verstuurd. Wij nemen zo spoedig
+                mogelijk contact met u op.
+            </p>
+            
+            <p id="formError">
+                Helaas is het formulier niet succesvol verstuurd. Probeert u het
+                alstublieft opnieuw, of neemt u op een andere manier contact met
+                ons op. Wij stellen het op prijs als u hierbij vermeldt dat u
+                problemen heeft ondervonden met de verzending van dit formulier.
             </p>
             
         </div>
