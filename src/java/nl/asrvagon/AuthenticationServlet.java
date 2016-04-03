@@ -29,8 +29,10 @@ public class AuthenticationServlet extends HttpServlet {
               + "<body>\n"
                   + "<img src=\"/images/loginTop.jpg\" alt=\"Roeipanorama\" id=\"topFoto\" />\n"
                   + "<div id=\"content\">\n"
-                      + "<p>\n"
-                          + "Log in om toegang te krijgen tot informatie voor leden.\n"
+                        //TODO log in systeem maken
+                      + "<p>\n"//temporary
+                          + "Binnenkort kunnen leden hier inloggen op een beveiligd deel van deze website.\n"//temporary
+                        //+ "Log in om toegang te krijgen tot informatie voor leden.\n"
                       + "</p>\n";
     public static final String ERROR_MESSAGE =
                         "<p class=\"error\">\n"
@@ -38,7 +40,8 @@ public class AuthenticationServlet extends HttpServlet {
                       + "</p>\n";
     
     public static final String PAGE_END =
-                        "<form method=\"POST\" action=\"j_security_check\">\n"
+                      //TODO log in systeem maken
+                      /*"<form method=\"POST\" action=\"j_security_check\">\n"
                           + "<fieldset>\n"
                               + "<legend>Log in</legend>\n"
                               + "<label for=\"username\">Gebruikersnaam:</label>\n"
@@ -60,7 +63,7 @@ public class AuthenticationServlet extends HttpServlet {
                               + "<input type=\"submit\" value=\"Log in\" />\n"
                           + "</fieldset>\n"
                       + "</form>\n"
-                  + "</div>\n"
+                + */ "</div>\n"
               + "</body>\n"
           + "</html>";
     

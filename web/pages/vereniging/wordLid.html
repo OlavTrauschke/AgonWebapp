@@ -6,11 +6,13 @@
         <title>Vereniging - Word Lid!</title>
         <link rel="stylesheet" type="text/css" href="/style/form.css" />
         <script src="/scripts/hideForm.js"></script>
+        <script src="/scripts/wordLid.js"></script>
+        <script src="/scripts/jquery-1.12.2.min.js"></script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
 
-    <body>
+    <body onLoad="init()">
 
         <img src="/images/vereniging/wordLidTop.jpg" alt="Roeipanorama" id="topFoto" />
 
@@ -56,6 +58,22 @@
                 </li>
             </ul>
             
+            <h1>Lidmaatschap</h1>
+            <p>
+                Een persoon die zich als lid aanmeldt:
+            </p>
+            <ul>
+                <li>is akkoord met de statuten en het huishoudelijk reglement van de vereniging;</li>
+                <li>kan zwemmen;</li>
+                <li>beoefent de sport op eigen risico;</li>
+                <li>gaat een lidmaatschap aan voor de duur van het kalenderjaar, dat jaarlijks stilzwijgend wordt verlengd;</li>
+                <li>kan maandelijks zijn lidmaatschap opzeggen, met een opzegtermijn van drie maanden;</li>
+                <li>verricht minimaal twee keer per jaar ondersteunende taken (schoonmaken clubgebouw, kantinedienst, onderhoudswerk)</li>
+                <li>betaalt bij aanmelding een borgsom van € 57,-. Bij meerdere leden op één adres volstaat één keer de borgsom;</li>
+                <li>en verklaart indien hij minderjarig is dat zijn ouders op de hoogte zijn van het aangaan van het lidmaatschap
+                    en bovengenoemde consequenties daarvan en deze accepteren.
+            </ul>
+            
             <h1>Trainingsmomenten</h1>
             <ul>
                 <li>
@@ -87,8 +105,6 @@
                 Als meerdere leden op een adres wonen krijgt men vanaf het tweede lid 15 korting;
                 Er geldt een veprlichte bijdrage voor de KNRB, wanneer je lid bent bij twee roeiverenigingen wordt deze bijdrage slechts bij een vereniging ge&iuml;nd.
             </p>
-            
-            <!--TODO samenvatting statuten en HR toevoegen zoals op papieren inschrijfformulier-->
             
             <form onsubmit="processForm(event, this);">
                 
@@ -342,16 +358,26 @@
                     
                     <p>
                         De verzender van dit formulier verklaart verklaart voldoende
-                        op de hoogte te zijn van de inhoud van de statuten, het
-                        huishoudelijk reglement en eventuele aanvullende reglementen
-                        van zowel de vereniging A.S.R.V. Agon als de vereniging
-                        R.V. Pampus en door verzending van dit formulier een verzoek
-                        tot lidmaatschap te doen, zoals bedoeld in artikel 3 van het
-                        huishoudelijk reglement van A.S.R.V. Agon.
-                        <!--TODO links statuten en HR toevoegen-->
+                        op de hoogte te zijn van de inhoud van
+                        <a href="/documents/statuten.pdf">de statuten</a>,
+                        <a href="/documents/huishoudelijkReglement.pdf">het
+                        huishoudelijk reglement</a> en eventuele aanvullende
+                        reglementen van zowel de vereniging A.S.R.V. Agon als de
+                        vereniging R.V. Pampus en door verzending van dit
+                        formulier een verzoek tot lidmaatschap te doen, zoals
+                        bedoeld in artikel 3 van het huishoudelijk reglement van
+                        A.S.R.V. Agon.
                     </p>
                     
-                    <!--TODO plaats, datum en submit toevoegen-->
+                    <label for="plaats">Plaats waarvan dit formulier wordt verstuurd: </label>
+                    <input type="text" id="plaats" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="datumVersturen">Datum waarop dit formulier wordt verstuurd: </label>
+                    <input type="date" id="datumVersturen" class="textInput" required /><br />
+                    <br />
+                    
+                    <input type="submit" value="Verstuur" />
                 </fieldset>
                 
             </form>
