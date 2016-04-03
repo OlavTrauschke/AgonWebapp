@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Stardos+Stencil);
 
 body {
-    background-image: url(/images/welcome.jpg);
+    background-image: url(/test/images/welcome.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center top;

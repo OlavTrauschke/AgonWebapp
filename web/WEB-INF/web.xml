@@ -17,7 +17,7 @@
         <web-resource-collection>
             <web-resource-name>USERS</web-resource-name>
             <url-pattern>/login</url-pattern>
-            <url-pattern>/pages/secure/*</url-pattern>
+            <url-pattern>/test/pages/secure/*</url-pattern>
         </web-resource-collection>
         <user-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
@@ -27,9 +27,9 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>SECURE</web-resource-name>
-            <url-pattern>/pages/secure/*</url-pattern>
-            <url-pattern>/images/secure/*</url-pattern>
-            <url-pattern>/videos/secure/*</url-pattern>
+            <url-pattern>/test/pages/secure/*</url-pattern>
+            <url-pattern>/test/images/secure/*</url-pattern>
+            <url-pattern>/test/videos/secure/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>lid</role-name>
