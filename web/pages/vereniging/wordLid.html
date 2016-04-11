@@ -5,7 +5,7 @@
     <head>
         <title>Vereniging - Word Lid!</title>
         <link rel="stylesheet" type="text/css" href="/test/style/form.css" />
-        <script src="/test/scripts/hideForm.js"></script>
+        <script src="/test/scripts/processForm.js"></script>
         <script src="/test/scripts/wordLid.js"></script>
         <script src="/test/scripts/jquery-1.12.2.min.js"></script>
         <meta charset="UTF-8" />
@@ -93,7 +93,7 @@
                 Er geldt een veprlichte bijdrage voor de KNRB, wanneer je lid bent bij twee roeiverenigingen wordt deze bijdrage slechts bij een vereniging ge&iuml;nd.
             </p>
             
-            <form onsubmit="processForm(event, this);">
+            <form onsubmit="processForm(event, this);" action="/test/wordLidServlet">
                 
                 <fieldset>
                     <legend>NAW-gegevens:</legend>

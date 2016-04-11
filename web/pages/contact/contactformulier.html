@@ -6,7 +6,7 @@
         <title>Contactformulier</title>
         <link rel="stylesheet" type="text/css" href="/test/style/form.css" />
         <script src="/test/scripts/internalLinks.js"></script>
-        <script src="/test/scripts/hideForm.js"></script>
+        <script src="/test/scripts/processForm.js"></script>
         <script src="/test/scripts/jquery-1.12.2.min.js"></script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +22,7 @@
                 Gebruik dit formulier om contact op te nemen voor vragen en/of opmerkingen.<br />
                 Wil je je inschrijven? Gebruik dan het <a href="#" onclick="goToInschrijfformulier()">inschrijfformulier</a>.
             </p>
-            <form onsubmit="processForm(event, this);">
+            <form onsubmit="processForm(event, this);" action="/test/contactServlet">
                 
                 <fieldset>
                     <legend>Contactinformatie:</legend>
