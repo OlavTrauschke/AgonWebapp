@@ -73,12 +73,15 @@ function navigate() {
     }
 }
 
+//TODO fix compatibility with Edge, FF, IE & Chrome???
 function goToHomeOnDownArrow(e) {
     e = e || window.event;
     if (e.keyCode === 40) {
         goToHome();
     }
 }
+
+//TODO fix compatibility with Edge, FF & IE
 function goToHomeOnScrollDown(e) {
     e = e || window.event;
     if (e.deltaY > 0) {
@@ -119,6 +122,7 @@ function goTo(button) {
     activateActiveButtons();
 }
 
+//TODO fix total height in Edge, FF & IE (avoid double scroll bar)
 function leaveWelcome() {
     document.body.removeEventListener("keydown", goToHomeOnDownArrow);
     document.body.removeEventListener("wheel", goToHomeOnScrollDown);
