@@ -29,3 +29,7 @@ hr {
     border-color: #FCD100;
     border-style: solid;
 }
+
+.smallerFont {
+    font-size: smaller;
+}

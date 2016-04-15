@@ -21,8 +21,8 @@ function unmarkMenuItem(menuItem) {
 }
 
 function init() {
-    document.body.addEventListener("keydown", goToHomeOnDownArrow);
-    document.body.addEventListener("wheel", goToHomeOnScrollDown);
+    addEventListener("keydown", goToHomeOnDownArrow);
+    document.getElementById("content").addEventListener("wheel", goToHomeOnScrollDown);
     addEventListener("hashchange", navigate);
     addMarkOnHover();
     addSubmenus();
@@ -73,7 +73,6 @@ function navigate() {
     }
 }
 
-//TODO fix compatibility with Edge, FF, IE & Chrome???
 function goToHomeOnDownArrow(e) {
     e = e || window.event;
     if (e.keyCode === 40) {
@@ -81,13 +80,13 @@ function goToHomeOnDownArrow(e) {
     }
 }
 
-//TODO fix compatibility with Edge, FF & IE
 function goToHomeOnScrollDown(e) {
     e = e || window.event;
     if (e.deltaY > 0) {
         goToHome();
     }
 }
+
 function goToHome() {
     window.location.hash = "Home";
 }
@@ -124,8 +123,8 @@ function goTo(button) {
 
 //TODO fix total height in Edge, FF & IE (avoid double scroll bar)
 function leaveWelcome() {
-    document.body.removeEventListener("keydown", goToHomeOnDownArrow);
-    document.body.removeEventListener("wheel", goToHomeOnScrollDown);
+    removeEventListener("keydown", goToHomeOnDownArrow);
+    document.removeEventListener("wheel", goToHomeOnScrollDown);
     document.getElementById("mainFrame").style.height = "95%";
     var socialMediaBar = document.getElementById("socialMediaBar");
     socialMediaBar.style.display = "initial";
