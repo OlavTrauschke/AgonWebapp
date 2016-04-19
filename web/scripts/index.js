@@ -58,13 +58,15 @@ function addSubmenus() {
     menuItem6.addEventListener("mouseout", function() {hide("submenu6");});
 }
 
+//TODO support IE
 function show(id) {
-    document.getElementById(id).style.display = "initial";
+    document.getElementById(id).style.display = "";
 }
 function hide(id) {
     document.getElementById(id).style.display = "none";
 }
 
+//TODO improve back-button support
 function navigate() {
     var destination = window.location.hash;
     if (destination !== "") {
