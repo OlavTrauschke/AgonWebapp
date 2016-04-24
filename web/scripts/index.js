@@ -124,7 +124,7 @@ function goTo(button) {
 
 function leaveWelcome() {
     removeEventListener("keydown", goToHomeOnDownArrow);
-    document.removeEventListener("wheel", goToHomeOnScrollDown);
+    document.getElementById("content").removeEventListener("wheel", goToHomeOnScrollDown);
     document.getElementById("mainFrame").style.height = "95%";
     var socialMediaBar = document.getElementById("socialMediaBar");
     socialMediaBar.style.display = "block";
