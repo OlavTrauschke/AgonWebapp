@@ -9,5 +9,5 @@ function processForm(event, form) {
 }
 
 function display(id) {
-    document.getElementById(id).style.display = "initial";
+    document.getElementById(id).style.display = "block";
 }

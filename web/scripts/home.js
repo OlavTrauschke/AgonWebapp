@@ -11,6 +11,6 @@ function init() {
         var height = Math.round(factor * photo.naturalHeight);
         photo.style.width = width + "px";
         photo.style.height = height + "px";
-        photo.style.display = "initial";
+        photo.style.display = "block";
     }
 }

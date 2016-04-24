@@ -58,9 +58,8 @@ function addSubmenus() {
     menuItem6.addEventListener("mouseout", function() {hide("submenu6");});
 }
 
-//TODO support IE
 function show(id) {
-    document.getElementById(id).style.display = "";
+    document.getElementById(id).style.display = "block";
 }
 function hide(id) {
     document.getElementById(id).style.display = "none";
@@ -123,13 +122,12 @@ function goTo(button) {
     activateActiveButtons();
 }
 
-//TODO fix total height in Edge, FF & IE (avoid double scroll bar)
 function leaveWelcome() {
     removeEventListener("keydown", goToHomeOnDownArrow);
     document.removeEventListener("wheel", goToHomeOnScrollDown);
     document.getElementById("mainFrame").style.height = "95%";
     var socialMediaBar = document.getElementById("socialMediaBar");
-    socialMediaBar.style.display = "initial";
+    socialMediaBar.style.display = "block";
     socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
     
 }
