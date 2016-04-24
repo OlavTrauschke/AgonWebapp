@@ -7,7 +7,6 @@ html {
 }
 
 body {
-    /*TODO downsize photo*/
     background-image: url(/test/images/welcome.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
