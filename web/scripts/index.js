@@ -26,6 +26,9 @@ function init() {
     addEventListener("hashchange", navigate);
     addMarkOnHover();
     addSubmenus();
+    var mainFrame = document.getElementById("mainFrame");
+    mainFrame.addEventListener("load", resizeMenu);
+    initMenu();
     navigate();
 }
 
@@ -63,6 +66,22 @@ function show(id) {
 }
 function hide(id) {
     document.getElementById(id).style.display = "none";
+}
+
+function resizeMenu() {
+    var mainFrame = document.getElementById("mainFrame");
+    var frameDocument = mainFrame.contentWindow.document;
+    var frameContent = frameDocument.getElementById("content");
+    var width = frameContent.clientWidth;
+    var menu = document.getElementById("menu");
+    menu.style.width = width + "px";
+}
+
+function initMenu() {
+    var menuItem1 = document.getElementById("menuItem1");
+    var height = menuItem1.clientHeight;
+    var menu = document.getElementById("menu");
+    menu.style.height = height + "px";
 }
 
 //TODO improve back-button support
