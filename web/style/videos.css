@@ -1,7 +1,7 @@
 @import url(contentBase.css);
 
 video {
-    max-width: 48.5%;
+    width: 48.5%;
     float: left;
     margin: 0% 0% 1% 1%;;
 }
