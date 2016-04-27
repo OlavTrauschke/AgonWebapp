@@ -3,13 +3,14 @@
          xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
     <servlet>
-        <servlet-name>ContactServlet</servlet-name>
-        <servlet-class>nl.asrvagon.ContactServlet</servlet-class>
+        <servlet-name>EmailServlet</servlet-name>
+        <servlet-class>nl.asrvagon.EmailServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ContactServlet</servlet-name>
-        <url-pattern>/contactServlet</url-pattern>
+        <servlet-name>EmailServlet</servlet-name>
+        <url-pattern>/emailServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -17,24 +18,26 @@
         </session-timeout>
     </session-config>
     
-    <!--TODO log in systeem maken
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>USERS</web-resource-name>
+            <web-resource-name>SECURE_CONNECTION_REQUIRED</web-resource-name>
+            <url-pattern>/index.html</url-pattern>
             <url-pattern>/login</url-pattern>
-            <url-pattern>/test/pages/secure/*</url-pattern>
+            <url-pattern>/pages/contact/contactformulier.html</url-pattern>
+            <url-pattern>/pages/vereniging/wordLid.html</url-pattern>
         </web-resource-collection>
         <user-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
     </security-constraint>
     
+    <!--TODO log in systeem maken
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>SECURE</web-resource-name>
-            <url-pattern>/test/pages/secure/*</url-pattern>
-            <url-pattern>/test/images/secure/*</url-pattern>
-            <url-pattern>/test/videos/secure/*</url-pattern>
+            <web-resource-name>AUTHENTICATION_REQUIRED</web-resource-name>
+            <url-pattern>/pages/secure/*</url-pattern>
+            <url-pattern>/images/secure/*</url-pattern>
+            <url-pattern>/videos/secure/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>lid</role-name>

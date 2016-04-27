@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
 
-    <body>
+    <body onLoad="createNames()">
 
         <img src="/test/images/contact/contactformulierTop.jpg" alt="Roeipanorama" id="topFoto" />
 
@@ -22,7 +22,7 @@
                 Gebruik dit formulier om contact op te nemen voor vragen en/of opmerkingen.<br />
                 Wil je je inschrijven? Gebruik dan het <a href="#" onclick="goToInschrijfformulier()">inschrijfformulier</a>.
             </p>
-            <form onsubmit="processForm(event, this);" action="/test/contactServlet">
+            <form onsubmit="processForm(event, this);" action="/test/emailServlet">
                 
                 <fieldset>
                     <legend>Contactinformatie:</legend>
@@ -43,7 +43,7 @@
                 
                 <fieldset>
                     <legend>Vraag/opmerking:</legend>
-                    <textarea rows="5" required></textarea>
+                    <textarea rows="5" id="vraag" required></textarea>
                 </fieldset>
                 
                 <br />

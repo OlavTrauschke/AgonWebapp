@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
 
-    <body onLoad="init()">
+    <body onLoad="init(); createNames()">
         
         <img src="/test/images/vereniging/wordLidTop.jpg" alt="Roeipanorama" id="topFoto" />
 
@@ -106,7 +106,7 @@
             
             <hr />
             
-            <form onsubmit="processForm(event, this);" action="/test/wordLidServlet">
+            <form onsubmit="processForm(event, this);" action="/test/emailServlet">
                 
                 <fieldset>
                     <legend>NAW-gegevens:</legend>
@@ -243,23 +243,23 @@
                     <br />
                     
                     <label for="straatnaamOuder">Straatnaam: </label>
-                    <input type="text" id="straatnaamOuder" class="textInput" required /><br />
+                    <input type="text" id="straatnaamOuder" class="textInput" /><br />
                     <br />
                     
                     <label for="huisnummerOuder">Huisnummer: </label>
-                    <input type="text" id="huisnummerOuder" class="textInput" required /><br />
+                    <input type="text" id="huisnummerOuder" class="textInput" /><br />
                     <br />
                     
                     <label for="postcodeOuder">Postcode: </label>
-                    <input type="text" id="postcodeOuder" class="textInput" required /><br />
+                    <input type="text" id="postcodeOuder" class="textInput" /><br />
                     <br />
                     
                     <label for="woonplaatsOuder">Woonplaats: </label>
-                    <input type="text" id="woonplaatsOuder" class="textInput" required /><br />
+                    <input type="text" id="woonplaatsOuder" class="textInput" /><br />
                     <br />
                     
                     <label for="telefoonnummerOuder">Telefoon: </label>
-                    <input type="tel" id="telefoonnummerOuder" class="textInput" required /><br />
+                    <input type="tel" id="telefoonnummerOuder" class="textInput" /><br />
                     <br />
                 </fieldset>
                 

@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
  * TODO document
  * 
  * @author Olav Trauschke
- * @version 3-apr-2016
+ * @version 27-apr-2016
  */
-public class ContactServlet extends HttpServlet {
+public class EmailServlet extends HttpServlet {
 
     /**
      * TODO document.
