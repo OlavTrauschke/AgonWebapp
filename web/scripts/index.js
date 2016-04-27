@@ -4,20 +4,20 @@ function markThis() {mark(this);}
 function unmarkThis() {unmark(this);}
 function mark(button) {
     button.style.color = "#FCD100";
-    button.style.opacity = 1;
+    button.style.backgroundColor = "#1B2EA1";
 }
 function unmark(button) {
     button.style.color = "white";
-    button.style.opacity = 0.7;
+    button.style.backgroundColor = "transparent";
 }
 
 function markMenuItemThis() {markMenuItem(this);}
 function unmarkMenuItemThis() {unmarkMenuItem(this);}
 function markMenuItem(menuItem) {
-    menuItem.style.opacity = 1;
+    menuItem.style.backgroundColor = "#1B2EA1";
 }
 function unmarkMenuItem(menuItem) {
-    menuItem.style.opacity = 0.7;
+    menuItem.style.backgroundColor = "transparent";
 }
 
 function init() {
