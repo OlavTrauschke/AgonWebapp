@@ -17,7 +17,8 @@ function processForm(event, form) {
     form.style.display = "none";
     
     $.ajax(form.action, {method: "POST", data: $(form).serialize(),
-                        error: display("formError"), success: display("formSuccess")});
+                        error: function() {display("formError");},
+                        success: function() {display("formSuccess");}});
 }
 
 function display(id) {
