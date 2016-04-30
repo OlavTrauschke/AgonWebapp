@@ -25,6 +25,7 @@
             <url-pattern>/login</url-pattern>
             <url-pattern>/pages/contact/contactformulier.html</url-pattern>
             <url-pattern>/pages/vereniging/wordLid.html</url-pattern>
+            <url-pattern>/pages/fyli/*</url-pattern>
         </web-resource-collection>
         <user-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
