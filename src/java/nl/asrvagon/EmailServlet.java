@@ -2,6 +2,8 @@ package nl.asrvagon;
 
 import java.io.*;
 import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
 import javax.servlet.http.*;
 
 import net.lingala.zip4j.core.ZipFile;
@@ -17,7 +19,54 @@ import net.lingala.zip4j.util.Zip4jConstants;
  */
 public class EmailServlet extends HttpServlet {
     
-    private static final String PW = "test";//TODO set encryption pw
+    private static final String FILE_PW = "test";//TODO set encryption pw
+    
+    private static InternetAddress FROM;
+    static {
+        try {
+            FROM = new InternetAddress(FROM_STRING);
+        }
+        catch (AddressException ae) {
+            System.out.println("FROM was found to be an invalid address.");
+        }
+    }
+    
+    private static InternetAddress TO;
+    static {
+        try {
+            TO = new InternetAddress("secretaris@srvagon.nl");
+        }
+        catch(AddressException ae) {
+            System.out.println("TO was found to be an invalid address.");
+        }
+    }
+    
+    /**
+     * TODO document
+     */
+    public static final String SUBJECT = "Webformulier ingevuld";
+    
+    /**
+     * TODO document
+     */
+    public static final String MAIL_BODY = "Beste secretaris van A.S.R.V. Agon,\n"
+            + "In de bijlage vind je de antwoorden die iemand op een formulier op "
+            + "de website van de vereniging heeft ingevuld.";
+    
+    /**
+     * TODO document
+     */
+    public static final Properties PROPERTIES = System.getProperties();
+    static {
+        PROPERTIES.put("mail.transport.protocol", "smtp");
+        PROPERTIES.put("mail.smtp.ssl.enable", true);
+        PROPERTIES.put("mail.smtp.host", "smtp.gmail.com");
+        PROPERTIES.put("mail.smtp.port", 465);
+        PROPERTIES.put("mail.smtp.user", FROM_STRING);
+        PROPERTIES.put("mail.smtp.password", MAIL_PW);
+        PROPERTIES.put("mail.smtp.auth", true);
+        PROPERTIES.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+    }
     
     /**
      * TODO document.
@@ -81,7 +130,7 @@ public class EmailServlet extends HttpServlet {
             parameters.setCompressionLevel(Zip4jConstants.DEFLATE_LEVEL_FAST);
             parameters.setEncryptFiles(true);
             parameters.setEncryptionMethod(Zip4jConstants.ENC_METHOD_STANDARD);
-            parameters.setPassword(PW);
+            parameters.setPassword(FILE_PW);
             zipFile.addFiles(filesToAdd, parameters);
             return resultFile;
         }
@@ -96,8 +145,49 @@ public class EmailServlet extends HttpServlet {
      * TODO document
      */
     private void send(File attachement, HttpServletResponse response) {
-        //TODO send attachement
-        deleteFile(attachement);
+        Authenticator authenticator = new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(FROM_STRING, MAIL_PW);
+            }
+        };
+        Session session = Session.getInstance(PROPERTIES, authenticator);
+        MimeMessage mail = new MimeMessage(session);
+        try {
+            mail.setFrom(FROM);
+            mail.addRecipient(Message.RecipientType.TO, TO);
+            mail.setSubject(SUBJECT);
+            Multipart mailContent = new MimeMultipart();
+            MimeBodyPart mailBody = new MimeBodyPart();
+            mailBody.setText(MAIL_BODY);
+            mailContent.addBodyPart(mailBody);
+            MimeBodyPart attachementPart = new MimeBodyPart();
+            attachementPart.attachFile(attachement);
+            mailContent.addBodyPart(attachementPart);
+            mail.setContent(mailContent);
+            Transport transport = session.getTransport();
+            transport.connect();
+            transport.sendMessage(mail, mail.getAllRecipients());
+            transport.close();
+        }
+        catch (IOException ioe) {
+            System.out.println("Attatching file to email failed: " + ioe);
+            handleInternalServerError(response);
+            return;
+        }
+        catch (NoSuchProviderException nspe) {
+            System.out.println("Failed to use email provider for transport: " + nspe);
+            handleInternalServerError(response);
+            return;
+        }
+        catch(MessagingException me) {
+            System.out.println("Sending email failed: " + me);
+            handleInternalServerError(response);
+            return;
+        }
+        finally {
+            deleteFile(attachement);
+        }
         response.setStatus(HttpServletResponse.SC_OK);
     }
     
@@ -123,7 +213,9 @@ public class EmailServlet extends HttpServlet {
                     "An error occured while handling your request. "
                   + "Please try again and contact us if this error keeps appearing.");
         }
-        catch (IOException ioe) {}
+        catch (IOException ioe) {
+            System.out.println("Setting error message failed");
+        }
     }
     
     /**
