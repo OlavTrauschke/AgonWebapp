@@ -13,7 +13,7 @@ import net.lingala.zip4j.util.Zip4jConstants;
  * TODO document
  * 
  * @author Olav Trauschke
- * @version 27-apr-2016
+ * @version 30-apr-2016
  */
 public class EmailServlet extends HttpServlet {
     
@@ -46,7 +46,7 @@ public class EmailServlet extends HttpServlet {
             }
             writer.close();
             File zipFile = compress(output, sessionId, response);
-            output.delete();
+            deleteFile(output);
             if (zipFile == null) {
                 handleInternalServerError(response);
             }
@@ -61,6 +61,7 @@ public class EmailServlet extends HttpServlet {
                 }
                 catch (IOException ioe3) {}
             }
+            System.out.println("Handling request failed: " + ioe);
             handleInternalServerError(response);
         }
     }
@@ -70,8 +71,8 @@ public class EmailServlet extends HttpServlet {
      */
     private File compress(File input, String sessionId, HttpServletResponse response) {
         String tempDir = System.getProperty("java.io.tmpdir");
+        File resultFile = new File(tempDir, sessionId + ".zip");
         try {
-            File resultFile = new File(tempDir, sessionId + ".zip");
             ZipFile zipFile = new ZipFile(resultFile);
             ArrayList<File> filesToAdd = new ArrayList<>();
             filesToAdd.add(input);
@@ -85,6 +86,8 @@ public class EmailServlet extends HttpServlet {
             return resultFile;
         }
         catch (ZipException ze) {
+            System.out.println("Compression of file " + input.getAbsolutePath()
+                    + " into " + resultFile.getAbsolutePath() + " failed");
             return null;
         }
     }
@@ -94,8 +97,21 @@ public class EmailServlet extends HttpServlet {
      */
     private void send(File attachement, HttpServletResponse response) {
         //TODO send attachement
-        attachement.delete();
+        deleteFile(attachement);
         response.setStatus(HttpServletResponse.SC_OK);
+    }
+    
+    /**
+     * TODO document
+     */
+    private void deleteFile(File toDelete) {
+        if (!toDelete.delete()) {
+            //deletion failed, try again
+            if (!toDelete.delete()) {
+                System.out.println("Deletion of " + toDelete.getAbsolutePath()
+                        + " failed.");
+            }
+        }
     }
     
     /**
