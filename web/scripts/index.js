@@ -86,10 +86,29 @@ function initMenu() {
 
 //TODO improve back-button support
 function navigate() {
+    var frame = document.getElementById("mainFrame");
     var destination = window.location.hash;
     if (destination !== "") {
         destination = destination.substring(1);
-        goTo(document.getElementById(destination));
+    }
+    if (destination === "FyliWedstrijd") {
+        frame.src = "/test/pages/fyli/wedstrijd.html";
+        inactivateActiveButtons();
+        activeButtons = [null];
+    }
+    if (destination === "FyliClinic") {
+        frame.src = "/test/pages/fyli/clinic.html";
+        inactivateActiveButtons();
+        activeButtons = [null];
+    }
+    if (destination === "FyliFestival") {
+        frame.src = "/test/pages/fyli/festival.html";
+        inactivateActiveButtons();
+        activeButtons = [null];
+    }
+    var button = document.getElementById(destination);
+    if (button !== null) {
+        goTo(button);
     }
 }
 
@@ -154,6 +173,9 @@ function leaveWelcome() {
 function inactivateActiveButtons() {
     for (var i = 0; i < activeButtons.length; i++) {
         var activeButton = activeButtons[i];
+        if (activeButton === null) {
+            continue;
+        }
         if (activeButton.classList.contains("markable")) {
             activeButton.addEventListener("mouseover", markThis);
             activeButton.addEventListener("mouseout", unmarkThis);
@@ -195,4 +217,16 @@ function goToInschrijfformulier() {
 
 function goToVideos() {
     window.location.hash = "MediaVideos";
+}
+
+function goToAanmeldingWedstrijd() {
+    window.location.hash = "FyliWedstrijd";
+}
+
+function goToAanmeldingClinic() {
+    window.location.hash = "FyliClinic";
+}
+
+function goToAanmeldingFestival() {
+    window.location.hash = "FyliFestival";
 }
