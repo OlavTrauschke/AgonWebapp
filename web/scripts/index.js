@@ -91,11 +91,6 @@ function navigate() {
     if (destination !== "") {
         destination = destination.substring(1);
     }
-    if (destination === "FyliWedstrijd") {
-        frame.src = "/app/pages/fyli/wedstrijd.html";
-        inactivateActiveButtons();
-        activeButtons = [null];
-    }
     if (destination === "FyliClinic") {
         frame.src = "/app/pages/fyli/clinic.html";
         inactivateActiveButtons();
@@ -105,6 +100,9 @@ function navigate() {
         frame.src = "/app/pages/fyli/festival.html";
         inactivateActiveButtons();
         activeButtons = [null];
+    }
+    if (destination === "fyli") {
+        destination = "Fyli";
     }
     var button = document.getElementById(destination);
     if (button !== null) {
