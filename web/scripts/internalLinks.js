@@ -14,14 +14,6 @@ function goToVideos() {
     window.parent.goToVideos();
 }
 
-function goToAanmeldingWedstrijd() {
-    window.parent.goToAanmeldingWedstrijd();
-}
-
 function goToAanmeldingClinic() {
     window.parent.goToAanmeldingClinic();
-}
-
-function goToAanmeldingFestival() {
-    window.parent.goToAanmeldingFestival();
 }

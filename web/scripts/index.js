@@ -96,11 +96,6 @@ function navigate() {
         inactivateActiveButtons();
         activeButtons = [null];
     }
-    if (destination === "FyliFestival") {
-        frame.src = "/app/pages/fyli/festival.html";
-        inactivateActiveButtons();
-        activeButtons = [null];
-    }
     if (destination === "fyli") {
         destination = "Fyli";
     }
@@ -217,14 +212,6 @@ function goToVideos() {
     window.location.hash = "MediaVideos";
 }
 
-function goToAanmeldingWedstrijd() {
-    window.location.hash = "FyliWedstrijd";
-}
-
 function goToAanmeldingClinic() {
     window.location.hash = "FyliClinic";
-}
-
-function goToAanmeldingFestival() {
-    window.location.hash = "FyliFestival";
 }
