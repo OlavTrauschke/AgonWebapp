@@ -131,3 +131,19 @@ hr {
     margin-top: 0%;
     margin-bottom: 2px;
 }
+
+#onlyIfScriptSupported {
+    display: none;
+}
+
+#onlyIfScriptNotSupported {
+    color: white;
+    font-weight: bold;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 80%;
+}
+
+#onlyIfScriptNotSupported nav {
+    position: relative;
+}

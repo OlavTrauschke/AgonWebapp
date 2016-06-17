@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="/app/style/index.css" />
         <!--Not useless, increases browser-support-->
         <link rel="shortcut icon" href="/app/favicon.ico" />
+        <link rel="canonical" href="https://srvagon.nl" />
         <script src="/app/scripts/index.js"></script>
         <script src="/app/scripts/googleAnalytics.js"></script>
         <meta name="author" content="Olav Trauschke" />
@@ -27,141 +28,176 @@
         </div>
         
         <div id="content">
+            <div id="onlyIfScriptSupported">
+                <iframe id="mainFrame">
+                    Uw browser wordt niet ondersteund.
+                    Gebruik alstublieft de nieuwste versie van Google Chrome,
+                    Microsoft Edge, Microsoft Internet Explorer, Mozilla Firefox
+                    of Opera.
+                </iframe>
+
+                <nav id="menu">
+
+                    <div id="menuItem1" class="menuItem markable">
+                        <a id="Home" href="#Home" data-destination="/app/pages/home.html">
+                            Home
+                        </a>
+                    </div>
+
+                    <div id="menuItem2" class="menuItem">
+                        <a class="markable mainMenuItem"
+                           href="#VerenigingAlgemeen">
+                            Vereniging
+                        </a>
+                        <div class="submenu" id="submenu2">
+                            <a id="VerenigingAlgemeen" class="submenuItem markable"
+                               href="#VerenigingAlgemeen"
+                               data-destination="/app/pages/vereniging/algemeen.html">
+                                Algemeen
+                            </a>
+                            <a id="VerenigingOntstaan" class="submenuItem markable"
+                               href="#VerenigingOntstaan"
+                               data-destination="/app/pages/vereniging/ontstaan.html">
+                                Ontstaan
+                            </a>
+                            <a id="VerenigingBestuur"
+                               class="submenuItem markable" href="#VerenigingBestuur"
+                               data-destination="/app/pages/vereniging/bestuur.html">
+                                Bestuur
+                            </a>
+                            <a id="VerenigingSponsoren" class="submenuItem markable"
+                               href="#VerenigingSponsoren"
+                               data-destination="/app/pages/vereniging/partners.html">
+                                Partners
+                            </a>
+                            <a id="VerenigingWordLid" class="submenuItem markable"
+                               href="#VerenigingWordLid"
+                               data-destination="/app/pages/vereniging/wordLid.html">
+                                Word lid!
+                            </a>
+                            <!--Verwijder de laatste drie tekens van deze regel om de pagina over de fyli te verbergen-->
+                            <a id="Fyli" class="submenuItem markable"
+                               href="#Fyli"
+                               data-destination="/app/pages/vereniging/fyli.html">
+                               Fylí Agon
+                            </a>
+                            <!--Verwijder de eerste vier tekens van deze regel om de pagina over de fyli te verbergen-->
+                        </div>
+                    </div>
+
+                    <div id="menuItem3" class="menuItem markable">
+                        <a id="Roeien" href="#Roeien"
+                           data-destination="/app/pages/roeien.html">
+                            Roeien
+                        </a>
+                    </div>
+
+                    <div id="menuItem4" class="menuItem">
+                        <a class="markable mainMenuItem" href="#MediaFotos">
+                            Media
+                        </a>
+                        <div class="submenu" id="submenu4">
+                            <a id="MediaFotos" class="submenuItem markable"
+                               href="#MediaFotos"
+                               data-destination="/app/pages/media/fotos.html">
+                                Foto's
+                            </a>
+                            <a id="MediaVideos" class="submenuItem markable"
+                               href="#MediaVideos"
+                               data-destination="/app/pages/media/videos.html">
+                                Video's
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="menuItem5" class="menuItem markable">
+                        <a id="Kalender" href="#Kalender"
+                           data-destination="/app/pages/kalender.html">
+                            Kalender
+                        </a>
+                    </div>
+
+                    <div id="menuItem6" class="menuItem">
+                        <a class="markable mainMenuItem" href="#ContactContactgegevens">
+                            Contact
+                        </a>
+                        <div class="submenu" id="submenu6">
+                            <a id="ContactContactgegevens" class="submenuItem markable"
+                               href="#ContactContactgegevens"
+                               data-destination="/app/pages/contact/contactgegevens.html">
+                                Contactgegevens
+                            </a>
+                            <a id="ContactContactformulier" class="submenuItem markable"
+                               href="#ContactContactformulier"
+                               data-destination="/app/pages/contact/contactformulier.html">
+                                Contactformulier
+                            </a>
+                            <!--Aan het einde van deze regel zonder de spaties "- - >"
+                            toevoegen om aanmeldformulier zichtbaar te maken
+                            <a id="ContactAanmeldenActiviteit" class="submenuItem markable"
+                               href="#ContactAanmeldenActiviteit"
+                               data-destination="/app/pages/contact/aanmeldenActiviteit.html">
+                                Aanmelden activiteit
+                            </a>
+                            Deze regel verwijderen om aanmeldformulier zichtbaar te maken-->
+                        </div>
+                    </div>
+
+                    <div id="menuItem7" class="menuItem markable">
+                        <a id="Login" href="#Login" data-destination="/app/login">
+                            Log in
+                        </a>
+                    </div>
+                </nav>
+
+                <div id="socialMediaBar">
+                    <hr>
+                    <a href="mailto:info@srvagon.nl">
+                        <img src="/app/images/email.png" alt="E-mail" class="linkImage" />
+                    </a>
+                    <a href="https://www.facebook.com/srvagon" target="_blank">
+                        <img src="/app/images/facebook.png" alt="Facebook" class="linkImage" />
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCiSKVJvDEqyVRIjFJ_pX2Yw" target="_blank">
+                        <img src="/app/images/youtube.png" alt="YouTube" class="linkImage" />
+                    </a>
+                    <p class="smallerFont">Almeerse Studenten Roeivereniging Agon</p>
+                    <img src="/app/favicon.ico" alt="Agon schild" id="shield" />
+                </div>
+            </div>
             
-            <iframe src="/app/pages/welcome.html" id="mainFrame">
-                Uw browser wordt niet ondersteund.
-                Gebruik alstublieft de nieuwste versie van Google Chrome,
-                Microsoft Edge, Microsoft Internet Explorer, Mozilla Firefox
-                of Opera.
-            </iframe>
-
-            <nav id="menu">
-
-                <div id="menuItem1" class="menuItem markable">
-                    <a id="Home" href="#Home" data-destination="/app/pages/home.html">
-                        Home
-                    </a>
-                </div>
-
-                <div id="menuItem2" class="menuItem">
-                    <a class="markable mainMenuItem"
-                       href="#VerenigingAlgemeen">
-                        Vereniging
-                    </a>
-                    <div class="submenu" id="submenu2">
-                        <a id="VerenigingAlgemeen" class="submenuItem markable"
-                           href="#VerenigingAlgemeen"
-                           data-destination="/app/pages/vereniging/algemeen.html">
-                            Algemeen
-                        </a>
-                        <a id="VerenigingOntstaan" class="submenuItem markable"
-                           href="#VerenigingOntstaan"
-                           data-destination="/app/pages/vereniging/ontstaan.html">
-                            Ontstaan
-                        </a>
-                        <a id="VerenigingBestuur"
-                           class="submenuItem markable" href="#VerenigingBestuur"
-                           data-destination="/app/pages/vereniging/bestuur.html">
-                            Bestuur
-                        </a>
-                        <a id="VerenigingSponsoren" class="submenuItem markable"
-                           href="#VerenigingSponsoren"
-                           data-destination="/app/pages/vereniging/sponsoren.html">
-                            Sponsoren
-                        </a>
-                        <a id="VerenigingWordLid" class="submenuItem markable"
-                           href="#VerenigingWordLid"
-                           data-destination="/app/pages/vereniging/wordLid.html">
-                            Word lid!
-                        </a>
-                        <!--Verwijder de laatste drie tekens van deze regel om de pagina over de fyli te verbergen-->
-                        <a id="Fyli" class="submenuItem markable"
-                           href="#Fyli"
-                           data-destination="/app/pages/vereniging/fyli.html">
-                           Fylí Agon
-                        </a>
-                        <!--Verwijder de eerste vier tekens van deze regel om de pagina over de fyli te verbergen-->
-                    </div>
-                </div>
-
-                <div id="menuItem3" class="menuItem markable">
-                    <a id="Roeien" href="#Roeien"
-                       data-destination="/app/pages/roeien.html">
-                        Roeien
-                    </a>
-                </div>
-
-                <div id="menuItem4" class="menuItem">
-                    <a class="markable mainMenuItem" href="#MediaFotos">
-                        Media
-                    </a>
-                    <div class="submenu" id="submenu4">
-                        <a id="MediaFotos" class="submenuItem markable"
-                           href="#MediaFotos"
-                           data-destination="/app/pages/media/fotos.html">
-                            Foto's
-                        </a>
-                        <a id="MediaVideos" class="submenuItem markable"
-                           href="#MediaVideos"
-                           data-destination="/app/pages/media/videos.html">
-                            Video's
-                        </a>
-                    </div>
-                </div>
+            <div id="onlyIfScriptNotSupported">
+                <p>
+                    Uw browser ondersteunt geen JavaScript en deze website kan
+                    daarom niet juist worden weergegeven. Gebruik alstublieft de
+                    nieuwste versie van Google Chrome, Microsoft Edge, Microsoft
+                    Internet Explorer, Mozilla Firefox of Opera en staat u het
+                    uitvoeren van scripts toe. U kunt ook proberen via de links
+                    hieronder subpagina's van deze website te benaderen die
+                    mogelijk wel kunnen worden weergegeven in uw browser.
+                </p>
                 
-                <div id="menuItem5" class="menuItem markable">
-                    <a id="Kalender" href="#Kalender"
-                       data-destination="/app/pages/kalender.html">
-                        Kalender
-                    </a>
-                </div>
-
-                <div id="menuItem6" class="menuItem">
-                    <a class="markable mainMenuItem" href="#ContactContactgegevens">
-                        Contact
-                    </a>
-                    <div class="submenu" id="submenu6">
-                        <a id="ContactContactgegevens" class="submenuItem markable"
-                           href="#ContactContactgegevens"
-                           data-destination="/app/pages/contact/contactgegevens.html">
-                            Contactgegevens
-                        </a>
-                        <a id="ContactContactformulier" class="submenuItem markable"
-                           href="#ContactContactformulier"
-                           data-destination="/app/pages/contact/contactformulier.html">
-                            Contactformulier
-                        </a>
-                        <!--Aan het einde van deze regel zonder de spaties "- - >"
-                        toevoegen om aanmeldformulier zichtbaar te maken
-                        <a id="ContactAanmeldenActiviteit" class="submenuItem markable"
-                           href="#ContactAanmeldenActiviteit"
-                           data-destination="/app/pages/contact/aanmeldenActiviteit.html">
-                            Aanmelden activiteit
-                        </a>
-                        Deze regel verwijderen om aanmeldformulier zichtbaar te maken-->
-                    </div>
-                </div>
+                <p>
+                    N.B. Mogelijk werken links op de subpagina's niet in een
+                    browser. Keert u dan terug naar deze pagina om naar een
+                    andere pagina te navigeren.
+                </p>
                 
-                <div id="menuItem7" class="menuItem markable">
-                    <a id="Login" href="#Login" data-destination="/app/login">
-                        Log in
+                <nav>
+                    <a href="/app/pages/welcome.html">Welkom</a>
+                    <a href="/app/pages/home.html">Home</a>
+                    <a href="/app/pages/kalender.html">Kalender</a>
+                    <a href="/app/pages/roeien.html">Roeien</a>
+                    <a href="/app/pages/contact/aanmeldenActiviteit.html">
+                        Contact - Aanmelden activiteit
                     </a>
-                </div>
-            </nav>
-
-            <div id="socialMediaBar">
-                <hr>
-                <a href="mailto:info@srvagon.nl">
-                    <img src="/app/images/email.png" alt="E-mail" class="linkImage" />
-                </a>
-                <a href="https://www.facebook.com/srvagon" target="_blank">
-                    <img src="/app/images/facebook.png" alt="Facebook" class="linkImage" />
-                </a>
-                <a href="https://www.youtube.com/channel/UCiSKVJvDEqyVRIjFJ_pX2Yw" target="_blank">
-                    <img src="/app/images/youtube.png" alt="YouTube" class="linkImage" />
-                </a>
-                <p class="smallerFont">Almeerse Studenten Roeivereniging Agon</p>
-                <img src="/app/favicon.ico" alt="Agon schild" id="shield" />
+                    <a href="/app/pages/contact/contactformulier.html">
+                        Contact - Contactformulier
+                    </a>
+                    <a href="/app/pages/contact/contactgegevens.html">
+                        Contact - Contactgegevens
+                    </a>
+                </nav>
             </div>
             
         </div>
