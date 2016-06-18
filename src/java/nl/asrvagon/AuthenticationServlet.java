@@ -27,7 +27,7 @@ public class AuthenticationServlet extends HttpServlet {
                   + "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n"
               + "</head>\n"
               + "<body>\n"
-                  + "<img src=\"/app/images/loginTop.jpg\" alt=\"Roeipanorama\" id=\"topFoto\" />\n"
+                  + "<img src=\"/images/loginTop.jpg\" alt=\"Roeipanorama\" id=\"topFoto\" />\n"
                   + "<div id=\"content\">\n"
                         //TODO log in systeem maken
                       + "<p>\n"//temporary
