@@ -15,11 +15,13 @@ import net.lingala.zip4j.util.Zip4jConstants;
  * TODO document
  * 
  * @author Olav Trauschke
- * @version 30-apr-2016
+ * @version 10-jul-2016
  */
 public class EmailServlet extends HttpServlet {
     
     private static final String FILE_PW = "test";//TODO set encryption pw
+    
+    private static final long serialVersionUID = 132560487;
     
     private static InternetAddress FROM;
     static {

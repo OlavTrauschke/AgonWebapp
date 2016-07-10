@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet that displays the login-page, including an error on retry.
  * 
  * @author Olav Trauschke
- * @version 28-01-2016
+ * @version 10-jul-2016
  */
 @WebServlet(name = "AuthenticationServlet", urlPatterns = {"/login"})
 public class AuthenticationServlet extends HttpServlet {
-
+    
+    private static final long serialVersionUID = 841313148;
+    
     public static final String PAGE_START =
         "<!DOCTYPE html>\n"
          +  "<html>\n"
