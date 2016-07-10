@@ -4,7 +4,7 @@
 
     <head>
         <title>Fylí Agon - Clinic</title>
-        <link rel="stylesheet" type="text/css" href="/app/style/contentBase.css" />
+        <link rel="stylesheet" type="text/css" href="/app/style/form.css" />
         <link rel="canonical" href="https://srvagon.nl/app/pages/fyli/clinic.html" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +18,156 @@
             <h1>Fylí Agon - Clinic</h1>
             
             <p>
-                Binnenkort kun je je hier aanmelden voor de Fylí Agon.
+                Lijkt het je leuk om een keer te roeien? Schrijf je dan in voor de roeiclinic!
+                Je zult deze zaterdagmiddag in ongeveer een uur tijd de basisprincipes van roeien leren.
+                Als je wil kun je daarnaast kijken bij de roeiwedstrijd (ontzettend tof om te zien!)
+                en heb je toegang tot het minifestival (gezellig feest met foodtrucks en live-muziek).
+            </p>
+            
+            <p>
+                Deelname aan de roeiclinic kost 2 euro.
+                Je wordt verzocht dit bedrag na aanmelding over te maken op onderstaand rekeningnummer.
+                Je aanmelding wordt bevestigd zodra de betaling binnen is gekomen.<br />
+                <br />
+                NL16 INGB 0006 6689 67<br />
+                t.n.v. A.S.R.V. Agon<br />
+                o.v.v. Roeiclinic + je naam 
+
+            </p>
+            
+            <form onsubmit="processForm(event, this);" action="/app/emailServlet">
+                <input type="hidden" id="formulier" value="Aanmelding fyli clinic" />
+                
+                <fieldset>
+                    <legend>NAW-gegevens:</legend>
+                    
+                    <label for="voornaam">Voornaam: </label>
+                    <input type="text" id="voornaam" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="voorletters">Voorletters: </label>
+                    <input type="text" id="voorletters" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="achternaam">Achternaam: </label>
+                    <input type="text" id="achternaam" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="geboortedatum">Geboortedatum: </label>
+                    <input type="date" id="geboortedatum" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="straatnaam">Straatnaam: </label>
+                    <input type="text" id="straatnaam" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="huisnummer">Huisnummer: </label>
+                    <input type="text" id="huisnummer" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="postcode">Postcode: </label>
+                    <input type="text" id="postcode" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="woonplaats">Woonplaats: </label>
+                    <input type="text" id="woonplaats" class="textInput" required /><br />
+                    <br />
+                </fieldset>
+                
+                <br />
+                
+                <fieldset>
+                    <legend>Contactgegevens:</legend>
+                    
+                    <label for="telefoonnummer">Mobiel nummer: </label>
+                    <input type="tel" id="telefoonnummer" class="textInput" required /><br />
+                    <br />
+                    
+                    <label for="email">E-mailadres: </label>
+                    <input type="email" id="email" class="textInput" required /><br />
+                    <br />
+                </fieldset>
+                
+                <br />
+                
+                <fieldset>
+                    <legend>Studie:</legend>
+                    
+                    <label for="studie">Studie: </label>
+                    <input type="text" id="studie" class="textInput" /><br />
+                    <br />
+                    
+                    <label for="studiejaar">Studiejaar: </label>
+                    <input type="number" id="studiejaar" class="textInput" /><br />
+                    <br />
+                    
+                    <label for="instelling">Onderwijsinstelling: </label>
+                    <input type="text" id="instelling" class="textInput" /><br />
+                    <br />
+
+                    <label for="beroep">Beroep: </label>
+                    <input type="text" id="beroep" class="textInput" /><br />
+                    <br />
+                </fieldset>
+                
+                <br />
+                
+                <fieldset>
+                    <p>Hoe ken je A.S.R.V. Agon? (optioneel) </p>
+                        <input type="radio"
+                               name="referentie"
+                               value="websiteAgon"
+                               id="websiteAgon"
+                        />
+                        <label for="websiteAgon">Via website A.S.R.V. Agon</label><br />
+                        
+                        <input type="radio"
+                               name="referentie"
+                               value="websitePampus"
+                               id="websitePampus"
+                        />
+                        <label for="websitePampus">Via website R.V. Pampus</label><br />
+                        
+                        <input type="radio"
+                               name="referentie"
+                               value="facebook"
+                               id="facebook"
+                        />
+                        <label for="facebook">Via Facebook</label><br />
+                        
+                        <input type="radio"
+                               name="referentie"
+                               value="vrienden"
+                               id="vrienden"
+                        />
+                        <label for="vrienden">Via vrienden/kennissen</label><br />
+                        
+                        <input type="radio"
+                               name="referentie"
+                               value="anders"
+                               id="anders"
+                        />
+                        <label for="anders">Anders, namelijk </label>
+                        <input type="text" id="andereReferentie" class="textInputNotFloating" /><br />
+                        <br />
+                </fieldset>
+                
+                <br />
+                
+                <input type="submit" value="Verstuur" />
+                
+            </form>
+            
+            <p id="formSuccess">
+                Het formulier is succesvol verstuurd. Wij nemen zo spoedig
+                mogelijk contact met u op.
+            </p>
+            
+            <p id="formError">
+                Helaas is het formulier niet succesvol verstuurd. Probeert u het
+                alstublieft opnieuw, of neemt u op een andere manier contact met
+                ons op. Wij stellen het op prijs als u hierbij vermeldt dat u
+                problemen heeft ondervonden met de verzending van dit formulier.
             </p>
             
         </div>
