@@ -4,11 +4,9 @@ https://srvagon.nl/app/pages/home.html
 https://srvagon.nl/app/pages/kalender.html
 https://srvagon.nl/app/pages/roeien.html
 https://srvagon.nl/app/pages/welcome.html
-https://srvagon.nl/app/pages/contact/aanmeldenActiviteit.html
 https://srvagon.nl/app/pages/contact/contactformulier.html
 https://srvagon.nl/app/pages/contact/contactgegevens.html
 https://srvagon.nl/app/pages/fyli/clinic.html
-https://srvagon.nl/app/pages/fyli/festival.html
 https://srvagon.nl/app/pages/media/fotos.html
 https://srvagon.nl/app/pages/media/videos.html
 https://srvagon.nl/app/pages/vereniging/algemeen.html
