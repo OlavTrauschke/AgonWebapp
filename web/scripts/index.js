@@ -87,7 +87,6 @@ function initMenu() {
     menu.style.height = height + "px";
 }
 
-//TODO improve back-button support
 function navigate() {
     var frame = document.getElementById("mainFrame");
     var destination = window.location.hash;
@@ -217,4 +216,8 @@ function goToVideos() {
 
 function goToAanmeldingClinic() {
     window.location.hash = "FyliClinic";
+}
+
+function goToAanmeldingActiviteit() {
+    window.location.hash = "ContactAanmeldenActiviteit";
 }

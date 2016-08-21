@@ -37,3 +37,11 @@ function goToAanmeldingClinic() {
     window.parent.goToAanmeldingClinic();
     return false;
 }
+
+function goToAanmeldingActiviteit() {
+    if (window.top === window.self) {
+        return true;
+    }
+    window.parent.goToAanmeldingActiviteit();
+    return false;
+}
