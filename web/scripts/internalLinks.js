@@ -30,14 +30,6 @@ function goToVideos() {
     return false;
 }
 
-function goToAanmeldingClinic() {
-    if (window.top === window.self) {
-        return true;
-    }
-    window.parent.goToAanmeldingClinic();
-    return false;
-}
-
 function goToAanmeldingActiviteit() {
     if (window.top === window.self) {
         return true;

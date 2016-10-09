@@ -88,19 +88,13 @@ function initMenu() {
 }
 
 function navigate() {
-    var frame = document.getElementById("mainFrame");
     var destination = window.location.hash;
     if (destination !== "") {
         destination = destination.substring(1);
     }
-    if (destination === "FyliClinic") {
-        frame.src = "/app/pages/fyli/clinic.html";
-        inactivateActiveButtons();
-        activeButtons = [null];
-    }
-    if (destination === "fyli") {
-        destination = "Fyli";
-    }
+    var destinationHead =  destination.charAt(0).toUpperCase();
+    var destinationTail = destination.substring(1, destination.length - 1);
+    destination = destinationHead + destinationTail;
     var button = document.getElementById(destination);
     if (button !== null) {
         goTo(button);
@@ -212,10 +206,6 @@ function goToInschrijfformulier() {
 
 function goToVideos() {
     window.location.hash = "MediaVideos";
-}
-
-function goToAanmeldingClinic() {
-    window.location.hash = "FyliClinic";
 }
 
 function goToAanmeldingActiviteit() {
