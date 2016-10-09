@@ -24,7 +24,7 @@ public class AuthenticationServlet extends HttpServlet {
          +  "<html>\n"
               + "<head>\n"
                   + "<title>Log in</title>\n"
-                  + "<link rel=\"stylesheet\" type=\"text/css\" href=\"/app/style/form.css\" />\n"
+                  + "<link rel=\"stylesheet\" type=\"text/css\" href=\"/style/form.css\" />\n"
                   + "<meta charset=\"UTF-8\" />\n"
                   + "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n"
               + "</head>\n"
