@@ -93,7 +93,7 @@ function navigate() {
         destination = destination.substring(1);
     }
     var destinationHead =  destination.charAt(0).toUpperCase();
-    var destinationTail = destination.substring(1, destination.length - 1);
+    var destinationTail = destination.substring(1, destination.length);
     destination = destinationHead + destinationTail;
     var button = document.getElementById(destination);
     if (button !== null) {
