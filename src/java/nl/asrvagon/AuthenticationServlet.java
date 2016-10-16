@@ -12,13 +12,16 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet that displays the login-page, including an error on retry.
  * 
  * @author Olav Trauschke
- * @version 10-jul-2016
+ * @version 16-oct-2016
  */
 @WebServlet(name = "AuthenticationServlet", urlPatterns = {"/login"})
 public class AuthenticationServlet extends HttpServlet {
     
     private static final long serialVersionUID = 841313148;
     
+    /**
+     * HTML-code for the start of the authentication page.
+     */
     public static final String PAGE_START =
         "<!DOCTYPE html>\n"
          +  "<html>\n"
@@ -36,11 +39,19 @@ public class AuthenticationServlet extends HttpServlet {
                           + "Binnenkort kunnen leden hier inloggen op een beveiligd deel van deze website.\n"//temporary
                         //+ "Log in om toegang te krijgen tot informatie voor leden.\n"
                       + "</p>\n";
+    
+    /**
+     * HTML-code for displaying a message that a previous login attempt failed.
+     */
     public static final String ERROR_MESSAGE =
                         "<p class=\"error\">\n"
                           + "Inloggen mislukt. Probeer het opnieuw.\n"
                       + "</p>\n";
     
+    /**
+     * HTML-code for the end of the authenticion page that should follow
+     * <code>PAGE_START</code> and - if applicable - <code>ERROR_MESSAGE</code>.
+     */
     public static final String PAGE_END =
                       //TODO log in systeem maken
                       /*"<form method=\"POST\" action=\"j_security_check\">\n"
@@ -80,6 +91,8 @@ public class AuthenticationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        assert request != null && response != null;
+        
         response.setContentType("text/html;charset=UTF-8");
         String responseCode = PAGE_START;
         if (request.getParameter("failed") != null) {
