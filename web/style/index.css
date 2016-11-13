@@ -6,14 +6,10 @@ body {
 }
 
 @media only screen and (min-width: 900px){
-    #temporaryMobileContent {
-        display: none;
     }
 }
 
 @media not screen and (min-width: 900px) {
-    #content {
-        display: none;
     }
 }
 
