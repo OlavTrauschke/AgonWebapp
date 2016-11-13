@@ -23,8 +23,10 @@ function unmarkMenuItem(menuItem) {
 function init() {
     document.getElementById("onlyIfScriptNotSupported").style.display = "none";
     document.getElementById("onlyIfScriptSupported").style.display = "block";
+    
     var mainFrame = document.getElementById("mainFrame");
     mainFrame.src = "/app/pages/welcome.html";
+    
     addEventListener("keydown", goToHomeOnDownArrow);
     document.getElementById("content").addEventListener("wheel", goToHomeOnScrollDown);
     addEventListener("hashchange", navigate);
@@ -157,6 +159,12 @@ function leaveWelcome() {
     socialMediaBar.style.display = "block";
     socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
     
+    var emailButton = document.getElementById("emailButton");
+    var nameText = document.getElementById("nameText");
+    var shield = document.getElementById("shield");
+    if (emailButton.offsetTop < shield.offsetTop) {
+        nameText.style.display = "none";
+    }
 }
 
 function inactivateActiveButtons() {

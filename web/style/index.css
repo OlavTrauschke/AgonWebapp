@@ -116,6 +116,7 @@ nav a {
 .linkImage {
     float: left;
     margin-left: 1%;
+    max-width: 25%;
 }
 
 #shield {
