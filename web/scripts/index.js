@@ -24,7 +24,7 @@ function init() {
     document.getElementById("onlyIfScriptNotSupported").style.display = "none";
     document.getElementById("onlyIfScriptSupported").style.display = "block";
     var mainFrame = document.getElementById("mainFrame");
-    mainFrame.src = "/pages/welcome.html";
+    mainFrame.src = "/app/pages/welcome.html";
     addEventListener("keydown", goToHomeOnDownArrow);
     document.getElementById("content").addEventListener("wheel", goToHomeOnScrollDown);
     addEventListener("hashchange", navigate);

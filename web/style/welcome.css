@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background-image: url(/images/welcome.jpg);
+    background-image: url(/app/images/welcome.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center top;
