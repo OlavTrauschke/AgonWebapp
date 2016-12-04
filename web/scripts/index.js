@@ -1,4 +1,5 @@
 var activeButtons = [];
+var menuItemsWithSubMenus = ["2","4","6"];
 
 function markThis() {mark(this);}
 function unmarkThis() {unmark(this);}
@@ -25,16 +26,26 @@ function init() {
     document.getElementById("onlyIfScriptSupported").style.display = "block";
     
     var mainFrame = document.getElementById("mainFrame");
-    mainFrame.src = "/app/pages/welcome.html";
-    
-    addEventListener("keydown", goToHomeOnDownArrow);
-    document.getElementById("content").addEventListener("wheel", goToHomeOnScrollDown);
+    if (isWideScreen()) {
+        mainFrame.src = "/app/pages/welcome.html";
+        addEventListener("keydown", goToHomeOnDownArrow);
+        document.getElementById("content").addEventListener("wheel", goToHomeOnScrollDown);
+        addMarkOnHover();
+    }
+    else
+    {
+        mainFrame.src = "/app/pages/home.html";
+    }
     addEventListener("hashchange", navigate);
-    addMarkOnHover();
     addSubmenus();
     mainFrame.addEventListener("load", resizeMenu);
     initMenu();
     navigate();
+}
+
+function isWideScreen() {
+    var mediaQuery = window.matchMedia("only screen and (min-width: 900px)");
+    return mediaQuery.matches;
 }
 
 function addMarkOnHover() {
@@ -53,17 +64,20 @@ function addMarkOnHover() {
 }
 
 function addSubmenus() {
-    var menuItem2 = document.getElementById("menuItem2");
-    menuItem2.addEventListener("mouseover", function() {show("submenu2");});
-    menuItem2.addEventListener("mouseout", function() {hide("submenu2");});
-    
-    var menuItem4 = document.getElementById("menuItem4");
-    menuItem4.addEventListener("mouseover", function() {show("submenu4");});
-    menuItem4.addEventListener("mouseout", function() {hide("submenu4");});
-    
-    var menuItem6 = document.getElementById("menuItem6");
-    menuItem6.addEventListener("mouseover", function() {show("submenu6");});
-    menuItem6.addEventListener("mouseout", function() {hide("submenu6");});
+    for (var i = 0; i < menuItemsWithSubMenus.length; i++) {
+        var menuItemIdNumber = menuItemsWithSubMenus[i];
+        var menuItem = document.getElementById("menuItem" + menuItemIdNumber);
+        if (isWideScreen()) {
+            menuItem.addEventListener("mouseover",
+                function() {show("submenu" + menuItemIdNumber);});
+            menuItem.addEventListener("mouseout",
+                function() {hide("submenu" + menuItemIdNumber);});
+        }
+        else {
+            menuItem.addEventListener("click",
+                function() {toggle("submenu" + menuItemIdNumber);});
+        }
+    }
 }
 
 function show(id) {
@@ -71,6 +85,12 @@ function show(id) {
 }
 function hide(id) {
     document.getElementById(id).style.display = "none";
+}
+
+function toggle(id) {
+    var style = document.getElementById(id).style;
+    var oldDisplay = style.display;
+    style.display = oldDisplay === "none" ? "block" : "none";
 }
 
 function resizeMenu() {
@@ -87,6 +107,20 @@ function initMenu() {
     var height = menuItem1.clientHeight;
     var menu = document.getElementById("menu");
     menu.style.height = height + "px";
+    if (isWideScreen()) {
+        document.getElementById("hamburgerButton").style.display = "none";
+    }
+    else {
+        var menuHeight = document.getElementById("menuItem1").clientHeight;
+        var buttonHeight = Math.round(0.9 * menuHeight);
+        var padding = Math.floor((menuHeight - buttonHeight) / 2);
+        var button = document.getElementById("hamburgerButtonIcon");
+        button.style.height = buttonHeight + "px";
+        button.style.paddingTop = padding + "px";
+        button.style.paddingRight = padding + "px";
+        document.getElementById("actualMenu").style.display = "none";
+        document.getElementById("hamburgerButtonLink").style.height = menuHeight + "px";
+    }
 }
 
 function navigate() {

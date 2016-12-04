@@ -10,7 +10,7 @@ body {
     float: left;
 }
 
-@media only screen and (min-width: 900px){
+@media only screen and (min-width: 900px) {
     .menuItem {
         width: 14.3%;
     }
@@ -121,4 +121,8 @@ hr {
 
 #onlyIfScriptNotSupported nav {
     position: relative;
+}
+
+#hamburgerButton {
+    float: right;
 }
