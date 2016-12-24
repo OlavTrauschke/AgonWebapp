@@ -8,14 +8,8 @@ article {
 }
 
 .newsPhoto {
-    position: absolute;
-    top: 0%;
-    right: 0%;
+    float: right;
     display: none;
-}
-
-p {
-    width: 50%;
 }
 
 video {
