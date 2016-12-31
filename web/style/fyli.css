@@ -2,17 +2,26 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans);
 @import url(https://fonts.googleapis.com/css?family=Balthazar);
 
-.smallImage {
+img {
     max-height: 100%;
-    max-width: 8%;
 }
 
-.mediumImage {
-    max-height: 100%;
-    max-width: 17%;
+@media only screen and (min-width: 900px) {
+    .smallImage {
+        max-width: 8%;
+    }
+
+    .mediumImage {
+        max-width: 17%;
+    }
+
+    .wideImage {
+        max-width: 50%;
+    }
 }
 
-.wideImage {
-    max-height: 100%;
-    max-width: 50%;
+@media not screen and (min-width: 900px) {
+    img {
+        max-width: 100%;
+    }
 }
