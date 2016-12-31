@@ -9,7 +9,20 @@ article {
 
 .newsPhoto {
     float: right;
-    display: none;
+}
+
+@media only screen and (min-width: 900px) {
+    .newsPhoto {
+        display: none;
+    }
+}
+
+@media not screen and (min-width: 900px) {
+    .newsPhoto {
+        width: 100%;
+        clear: both;
+        margin-bottom: 10px;
+    }
 }
 
 video {

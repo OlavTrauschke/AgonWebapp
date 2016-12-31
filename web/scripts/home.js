@@ -1,20 +1,28 @@
 function init() {
     var photos = [].slice.call(document.getElementsByClassName("newsPhoto"));
+    var width = 0;
+    var height = 0;
     for (var i = 0; i < photos.length; i++) {
         var photo = photos[i];
-        var text = photo.parentElement.getElementsByClassName("articleContent")[0];
-        var width = 0;
-        var height = 0;
-        //Fixpoint because text height may increase with photo width due to wrapping
-        //Checks for difference larger than 1px because of rounding
-        while (Math.abs(width - 0.49 * text.clientWidth) > 1
-                && Math.abs(height - text.clientHeight) > 1)
-        {
-            var photoDimensions = calculatePhotoDimensions(photo, text);
-            width = photoDimensions[0];
-            height = photoDimensions[1];
+        if (isWideScreen()) {
+            var text = photo.parentElement.getElementsByClassName("articleContent")[0];
+            var width = 0;
+            var height = 0;
+            //Fixpoint because text height may increase with photo width due to wrapping
+            //Checks for difference larger than 1px because of rounding
+            while (Math.abs(width - 0.49 * text.clientWidth) > 1
+                    && Math.abs(height - text.clientHeight) > 1) {
+                var photoDimensions = calculatePhotoDimensions(photo, text);
+                width = photoDimensions[0];
+                height = photoDimensions[1];
+            }
         }
     }
+}
+
+function isWideScreen() {
+    var mediaQuery = window.matchMedia("only screen and (min-width: 900px)");
+    return mediaQuery.matches;
 }
 
 function calculatePhotoDimensions(photo, text) {
