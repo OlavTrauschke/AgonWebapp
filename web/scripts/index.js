@@ -35,6 +35,9 @@ function init() {
     else
     {
         mainFrame.src = "/app/pages/home.html";
+        var socialMediaBar = document.getElementById("socialMediaBar");
+        socialMediaBar.style.display = "block";
+        socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
     }
     addEventListener("hashchange", navigate);
     addSubmenus();
