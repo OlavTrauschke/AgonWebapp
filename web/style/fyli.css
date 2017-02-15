@@ -16,3 +16,7 @@
     max-height: 100%;
     max-width: 50%;
 }
+
+.fieldsTable td {
+    padding-right: 30px;
+}
