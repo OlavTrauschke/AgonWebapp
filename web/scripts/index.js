@@ -72,17 +72,17 @@ function addSubmenus() {
         var menuItemIdNumber = menuItemsWithSubMenus[i];
         var menuItem = document.getElementById("menuItem" + menuItemIdNumber);
         if (isWideScreen()) {
-            var show = function(id) {show(id);};
-            var hide = function(id) {hide(id);};
+            var showHandle = function(id) {show(id);};
+            var hideHandle = function(id) {hide(id);};
             menuItem.addEventListener("mouseover",
-                show.bind(this, "submenu" + menuItemIdNumber));
+                showHandle.bind(this, "submenu" + menuItemIdNumber));
             menuItem.addEventListener("mouseout",
-                hide.bind(this, "submenu" + menuItemIdNumber));
+                hideHandle.bind(this, "submenu" + menuItemIdNumber));
         }
         else {
-            var toggle = function(id) {toggle(id);};
+            var toggleHandle = function(id) {toggle(id);};
             menuItem.addEventListener("click",
-                toggle.bind(this, "submenu" + menuItemIdNumber));
+                toggleHandle.bind(this, "submenu" + menuItemIdNumber));
         }
     }
 }
