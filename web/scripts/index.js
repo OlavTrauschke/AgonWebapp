@@ -32,6 +32,7 @@ function init() {
         addEventListener("keydown", goToHomeOnDownArrow);
         document.getElementById("content").addEventListener("wheel", goToHomeOnScrollDown);
         addMarkOnHover();
+        addEventListener("hashchange", navigate);
     }
     else
     {
@@ -39,8 +40,8 @@ function init() {
         var socialMediaBar = document.getElementById("socialMediaBar");
         socialMediaBar.style.display = "block";
         socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
+        addEventListener("hashchange", closeHamburgerMenuAndNavigate);
     }
-    addEventListener("hashchange", navigate);
     addSubmenus();
     mainFrame.addEventListener("load", resizeMenu);
     initMenu();
@@ -100,6 +101,22 @@ function toggle(id) {
     style.display = oldDisplay === "none" ? "block" : "none";
 }
 
+function toggleHamburger() {
+    var actualMenuStyle = document.getElementById("actualMenu").style;
+    var actualMenuOldDisplay = actualMenuStyle.display;
+    actualMenuStyle.display = actualMenuOldDisplay === "none" ? "inline-block" : "none";
+    
+    document.getElementById("menu").style.backgroundColor =
+            actualMenuOldDisplay === "none"
+            ? "rgba(27, 46, 161, 1)"
+            : "rgba(27, 46, 161, 0.7)";
+}
+
+function closeHamburger() {
+    document.getElementById("actualMenu").style.display = "none";
+    document.getElementById("menu").style.backgroundColor = "rgba(27, 46, 161, 0.7)";
+}
+
 function resizeMenu() {
     var mainFrame = document.getElementById("mainFrame");
     var frameDocument = mainFrame.contentWindow.document;
@@ -128,6 +145,11 @@ function initMenu() {
         document.getElementById("actualMenu").style.display = "none";
         document.getElementById("hamburgerButtonLink").style.height = menuHeight + "px";
     }
+}
+
+function closeHamburgerMenuAndNavigate() {
+    closeHamburger();
+    navigate();
 }
 
 function navigate() {
