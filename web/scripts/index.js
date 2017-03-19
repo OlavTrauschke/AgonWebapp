@@ -22,6 +22,7 @@ function unmarkMenuItem(menuItem) {
 }
 
 function init() {
+    window.addEventListener("resize", function() {window.location.reload();});
     document.getElementById("onlyIfScriptNotSupported").style.display = "none";
     document.getElementById("onlyIfScriptSupported").style.display = "block";
     
