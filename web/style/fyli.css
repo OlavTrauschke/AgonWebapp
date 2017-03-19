@@ -25,3 +25,7 @@ img {
         max-width: 100%;
     }
 }
+
+.fieldsTable td {
+    padding-right: 30px;
+}
