@@ -96,9 +96,9 @@ function hide(id) {
 }
 
 function toggle(id) {
-    var style = document.getElementById(id).style;
-    var oldDisplay = style.display;
-    style.display = oldDisplay === "none" ? "block" : "none";
+    var element = document.getElementById(id);
+    var oldDisplay = getComputedStyle(element).display;
+    element.style.display = oldDisplay === "none" ? "block" : "none";
 }
 
 function toggleHamburger() {
