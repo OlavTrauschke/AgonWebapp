@@ -28,6 +28,10 @@ body {
     #nameText {
         display: none;
     }
+    
+    #actualMenu {
+        background-color: rgb(27, 46, 161);
+    }
 }
 
 nav {
