@@ -30,15 +30,6 @@ body {
     }
 }
 
-#temporaryMobileContent {
-    font-size: large;
-    font-weight: bold;
-    color: #FCD100;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 40%;
-}
-
 nav {
     width: 100%;
     text-align: center;
