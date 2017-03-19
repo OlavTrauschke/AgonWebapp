@@ -24,6 +24,10 @@ body {
     .menuItem {
         width: 100%;
     }
+    
+    #nameText {
+        display: none;
+    }
 }
 
 #temporaryMobileContent {
