@@ -28,7 +28,7 @@ function init() {
     
     var mainFrame = document.getElementById("mainFrame");
     if (isWideScreen()) {
-        mainFrame.src = "/app/pages/welcome.html";
+        mainFrame.src = "/test/pages/welcome.html";
         addEventListener("keydown", goToHomeOnDownArrow);
         document.getElementById("content").addEventListener("wheel", goToHomeOnScrollDown);
         addMarkOnHover();
@@ -36,7 +36,7 @@ function init() {
     }
     else
     {
-        mainFrame.src = "/app/pages/home.html";
+        mainFrame.src = "/test/pages/home.html";
         var socialMediaBar = document.getElementById("socialMediaBar");
         socialMediaBar.style.display = "block";
         socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
