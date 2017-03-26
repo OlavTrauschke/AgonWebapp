@@ -1,5 +1,7 @@
 var activeButtons = [];
 var menuItemsWithSubMenus = ["2","4","6"];
+var windowWidth;
+var windowHeight;
 
 function markThis() {mark(this);}
 function unmarkThis() {unmark(this);}
@@ -22,7 +24,16 @@ function unmarkMenuItem(menuItem) {
 }
 
 function init() {
-    window.addEventListener("resize", function() {window.location.reload();});
+    window.addEventListener("resize", function() {
+        //Check for real resize to stop events thrown unnecessarily on iPhones from triggering reloads
+        if (windowWidth !== window.clientWidth
+                || windowHeight !== window.clientHeight)
+        {
+            window.location.reload();
+            windowWidth = window.clientWidth;
+            windowHeight = window.clientHeight;
+        }
+    });
     document.getElementById("onlyIfScriptNotSupported").style.display = "none";
     document.getElementById("onlyIfScriptSupported").style.display = "block";
     
@@ -45,6 +56,8 @@ function init() {
     addSubmenus();
     mainFrame.addEventListener("load", resizeMenu);
     initMenu();
+    windowWidth = window.clientWidth;
+    windowHeight = window.clientHeight;
     navigate();
 }
 
