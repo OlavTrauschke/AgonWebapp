@@ -25,7 +25,7 @@ function unmarkMenuItem(menuItem) {
 
 function init() {
     window.addEventListener("resize", function() {
-        //Check for real resize to stop events thrown unnecessarily on iPhones from triggering reloads
+        //TODO fix automatic reloading by more subtle approach
         if (windowWidth !== window.clientWidth
                 || windowHeight !== window.clientHeight)
         {
