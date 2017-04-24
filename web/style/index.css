@@ -3,6 +3,7 @@
 
 body {
     background-color: #1B2EA1;
+    overflow: hidden;
 }
 
 .menuItem {
