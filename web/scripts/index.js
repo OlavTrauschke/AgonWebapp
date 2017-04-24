@@ -49,6 +49,7 @@ function init() {
     {
         mainFrame.src = "/test/pages/home.html";
         var socialMediaBar = document.getElementById("socialMediaBar");
+        document.getElementById("mainFrame").style.height = "95%";
         socialMediaBar.style.display = "block";
         //TODO uncomment if necessary socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
         addEventListener("hashchange", closeHamburgerMenuAndNavigate);
