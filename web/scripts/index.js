@@ -50,7 +50,7 @@ function init() {
         mainFrame.src = "/test/pages/home.html";
         var socialMediaBar = document.getElementById("socialMediaBar");
         socialMediaBar.style.display = "block";
-        socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
+        //TODO uncomment if necessary socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
         addEventListener("hashchange", closeHamburgerMenuAndNavigate);
     }
     addSubmenus();
@@ -233,7 +233,7 @@ function leaveWelcome() {
     document.getElementById("mainFrame").style.height = "95%";
     var socialMediaBar = document.getElementById("socialMediaBar");
     socialMediaBar.style.display = "block";
-    socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
+    //TODO uncomment if necessary socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
     
     var emailButton = document.getElementById("emailButton");
     var nameText = document.getElementById("nameText");
