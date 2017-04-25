@@ -1,6 +1,10 @@
 @import url(base.css);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans);
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: #1B2EA1;
     overflow: hidden;
