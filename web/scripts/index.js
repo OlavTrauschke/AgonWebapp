@@ -38,6 +38,13 @@ function init() {
     document.getElementById("onlyIfScriptSupported").style.display = "block";
     
     var mainFrame = document.getElementById("mainFrame");
+    
+    document.addEventListener("touchmove", function(e) {
+        var eClone = cloneObject(e);
+        mainFrame.contentDocument.dispatchEvent(eClone);
+        e.preventDefault();
+    });
+    
     if (isWideScreen()) {
         mainFrame.src = "/test/pages/welcome.html";
         addEventListener("keydown", goToHomeOnDownArrow);
@@ -60,6 +67,22 @@ function init() {
     windowWidth = window.clientWidth;
     windowHeight = window.clientHeight;
     navigate();
+}
+
+//Source: Rustam, November 5, 2012, http://stackoverflow.com/questions/11974262/how-to-clone-or-re-dispatch-dom-events
+function cloneObject(obj) {
+    if (obj === null || typeof(obj) !== 'object')
+    {
+        return obj;
+    }
+    else
+    {
+        var clone = new obj.constructor();
+        for(var key in obj) {
+            clone[key] = cloneObject(obj[key]);
+        }
+        return clone;
+    }
 }
 
 function isWideScreen() {
