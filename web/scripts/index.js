@@ -330,3 +330,36 @@ function goToVideos() {
 function goToAanmeldingActiviteit() {
     window.location.hash = "ContactAanmeldenActiviteit";
 }
+
+function showSocialMediaBarLocation() {
+    var result = showPosition(document.getElementById("socialMediaBar"), "socialMediaBar") + "\n"
+        + showPosition(document.getElementById("onlyIfScriptSupported"), "onlyIfScriptSupported") + "\n"
+        + showPosition(document.getElementById("content"), "content") + "\n"
+        + showPosition(document.body, "body") + "\n"
+        + showPosition(document.documentElement, "document") + "\n"
+        + "window client: " + window.clientWidth + "," + window.clientHeight + ","
+        + " scrollY " + window.scrollY;
+    alert(result);
+}
+
+function showPosition(element, name) {
+    var style = window.getComputedStyle(element);
+    return name + ": set: "
+        + style.getPropertyValue("position") + ","
+        + style.getPropertyValue("top") + ","
+        + style.getPropertyValue("left") + ","
+        + style.getPropertyValue("width") + ","
+        + style.getPropertyValue("height")
+        + " client: "
+        + element.clientTop + ","
+        + element.clientLeft + ","
+        + element.clientWidth + ","
+        + element.clientHeight
+        + " offset: "
+        + element.offsetTop + ","
+        + element.offsetLeft + ","
+        + element.offsetWidth + ","
+        + element.offsetHeight
+        + " scrollTop: "
+        + element.scrollTop;
+}
