@@ -1,5 +1,7 @@
 /build
-/nbproject
+/nbproject/**
+!/nbproject/project.properties
+!/nbproject/project.xml
 /test
 /build.xml
 /web/videos
