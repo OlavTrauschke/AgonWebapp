@@ -39,23 +39,6 @@ function init() {
     
     var mainFrame = document.getElementById("mainFrame");
     
-    document.addEventListener("touchmove", function(e) {
-        //TODO remove test
-        alert('Touchmove on  index');
-        //TODO remove test
-        var eClone = cloneObject(e);
-        mainFrame.contentDocument.dispatchEvent(eClone);
-        e.preventDefault();
-    });
-    
-    //TODO remove test
-    mainFrame.addEventListener("load", function() {
-        mainFrame.contentDocument.addEventListener("touchmove", function(e) {
-            alert('Touchmove on frame');
-        });
-    });
-    //TODO remove test
-    
     if (isWideScreen()) {
         mainFrame.src = "/test/pages/welcome.html";
         addEventListener("keydown", goToHomeOnDownArrow);
