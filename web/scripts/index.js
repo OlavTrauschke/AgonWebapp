@@ -3,6 +3,9 @@ var menuItemsWithSubMenus = ["2","4","6"];
 var windowWidth;
 var windowHeight;
 
+var socialMediaBarShouldBeVisible = false;
+var socialMediaBarIsErroneous = false;
+
 function markThis() {mark(this);}
 function unmarkThis() {unmark(this);}
 function mark(button) {
@@ -27,8 +30,7 @@ function init() {
     window.addEventListener("resize", function() {
         //TODO fix automatic reloading by more subtle approach
         if (windowWidth !== window.clientWidth
-                || windowHeight !== window.clientHeight)
-        {
+                || windowHeight !== window.clientHeight) {
             window.location.reload();
             windowWidth = window.clientWidth;
             windowHeight = window.clientHeight;
@@ -36,6 +38,20 @@ function init() {
     });
     document.getElementById("onlyIfScriptNotSupported").style.display = "none";
     document.getElementById("onlyIfScriptSupported").style.display = "block";
+    
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 0) {
+            socialMediaBarIsErroneous = true;
+            var socialMediaBar = document.getElementById("socialMediaBar");
+            socialMediaBar.style.display = "none";
+        }
+        else {
+            socialMediaBarIsErroneous = false;
+            if (socialMediaBarShouldBeVisible) {
+                socialMediaBar.style.display = "block";
+            }
+        }
+    });
     
     var mainFrame = document.getElementById("mainFrame");
     
@@ -46,12 +62,14 @@ function init() {
         addMarkOnHover();
         addEventListener("hashchange", navigate);
     }
-    else
-    {
+    else {
         mainFrame.src = "/test/pages/home.html";
         var socialMediaBar = document.getElementById("socialMediaBar");
         document.getElementById("mainFrame").style.height = "95%";
-        socialMediaBar.style.display = "block";
+        socialMediaBarShouldBeVisible = true;
+        if (! socialMediaBarIsErroneous) {
+            socialMediaBar.style.display = "block";
+        }
         //TODO uncomment if necessary socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
         addEventListener("hashchange", closeHamburgerMenuAndNavigate);
     }
@@ -65,12 +83,10 @@ function init() {
 
 //Source: Rustam, November 5, 2012, http://stackoverflow.com/questions/11974262/how-to-clone-or-re-dispatch-dom-events
 function cloneObject(obj) {
-    if (obj === null || typeof(obj) !== 'object')
-    {
+    if (obj === null || typeof(obj) !== 'object') {
         return obj;
     }
-    else
-    {
+    else {
         var clone = new obj.constructor();
         for(var key in obj) {
             clone[key] = cloneObject(obj[key]);
@@ -250,7 +266,10 @@ function leaveWelcome() {
     document.getElementById("content").removeEventListener("wheel", goToHomeOnScrollDown);
     document.getElementById("mainFrame").style.height = "95%";
     var socialMediaBar = document.getElementById("socialMediaBar");
-    socialMediaBar.style.display = "block";
+    if (!socialMediaBarIsErroneous) {
+        socialMediaBar.style.display = "block";
+    }
+    socialMediaBarShouldBeVisible = true;
     //TODO uncomment if necessary socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
     
     var emailButton = document.getElementById("emailButton");
