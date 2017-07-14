@@ -48,6 +48,7 @@ function init() {
         else {
             socialMediaBarIsErroneous = false;
             if (socialMediaBarShouldBeVisible) {
+                var socialMediaBar = document.getElementById("socialMediaBar");
                 socialMediaBar.style.display = "block";
             }
         }
