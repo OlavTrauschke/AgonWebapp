@@ -70,7 +70,6 @@ function init() {
         if (! socialMediaBarIsErroneous) {
             socialMediaBar.style.display = "block";
         }
-        //TODO uncomment if necessary socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
         addEventListener("hashchange", closeHamburgerMenuAndNavigate);
     }
     addSubmenus();
@@ -270,7 +269,6 @@ function leaveWelcome() {
         socialMediaBar.style.display = "block";
     }
     socialMediaBarShouldBeVisible = true;
-    //TODO uncomment if necessary socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
     
     var emailButton = document.getElementById("emailButton");
     var nameText = document.getElementById("nameText");
