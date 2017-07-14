@@ -17,15 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     
-    <body onLoad="init()">
-        
-        <div id="temporaryMobileContent">
-            <p>
-                Aan een mobiele versie van deze website wordt nog gewerkt. Momenteel
-                is deze website daarom helaas alleen nog te gebruiken op apparaten
-                met grotere schermen.
-            </p>
-        </div>
+    <body onLoad="init();">
         
         <div id="content">
             <div id="onlyIfScriptSupported">
@@ -37,122 +29,131 @@
                 </iframe>
 
                 <nav id="menu">
-
-                    <div id="menuItem1" class="menuItem markable">
-                        <a id="Home" href="#Home" data-destination="/pages/home.html">
-                            Home
+                    <div id="hamburgerButton">
+                        <a id="hamburgerButtonLink"
+                            onClick="toggleHamburger();">
+                            <img id="hamburgerButtonIcon"
+                                 src="/images/hamburger.svg"
+                                 alt="Menu" />
                         </a>
                     </div>
-
-                    <div id="menuItem2" class="menuItem">
-                        <a class="markable mainMenuItem"
-                           href="#VerenigingAlgemeen">
-                            Vereniging
-                        </a>
-                        <div class="submenu" id="submenu2">
-                            <a id="VerenigingAlgemeen" class="submenuItem markable"
-                               href="#VerenigingAlgemeen"
-                               data-destination="/pages/vereniging/algemeen.html">
-                                Algemeen
-                            </a>
-                            <a id="VerenigingOntstaan" class="submenuItem markable"
-                               href="#VerenigingOntstaan"
-                               data-destination="/pages/vereniging/ontstaan.html">
-                                Ontstaan
-                            </a>
-                            <a id="VerenigingBestuur"
-                               class="submenuItem markable" href="#VerenigingBestuur"
-                               data-destination="/pages/vereniging/bestuur.html">
-                                Bestuur
-                            </a>
-                            <a id="VerenigingSponsoren" class="submenuItem markable"
-                               href="#VerenigingSponsoren"
-                               data-destination="/pages/vereniging/partners.html">
-                                Partners
-                            </a>
-                            <a id="VerenigingWordLid" class="submenuItem markable"
-                               href="#VerenigingWordLid"
-                               data-destination="/pages/vereniging/wordLid.html">
-                                Word lid!
-                            </a>
-                            <!--Verwijder de laatste drie tekens van deze regel om de pagina over de fyli te verbergen-->
-                            <a id="Fyli" class="submenuItem markable"
-                               href="#Fyli"
-                               data-destination="/pages/vereniging/fyli.html">
-                               Fylí Agon
-                            </a>
-                            <!--Verwijder de eerste vier tekens van deze regel om de pagina over de fyli te verbergen-->
-                        </div>
-                    </div>
-
-                    <div id="menuItem3" class="menuItem markable">
-                        <a id="Roeien" href="#Roeien"
-                           data-destination="/pages/roeien.html">
-                            Roeien
-                        </a>
-                    </div>
-
-                    <div id="menuItem4" class="menuItem">
-                        <a class="markable mainMenuItem" href="#MediaFotos">
-                            Media
-                        </a>
-                        <div class="submenu" id="submenu4">
-                            <a id="MediaFotos" class="submenuItem markable"
-                               href="#MediaFotos"
-                               data-destination="/pages/media/fotos.html">
-                                Foto's
-                            </a>
-                            <a id="MediaVideos" class="submenuItem markable"
-                               href="#MediaVideos"
-                               data-destination="/pages/media/videos.html">
-                                Video's
+                    <div id="actualMenu">
+                        
+                        <div id="menuItem1" class="menuItem markable">
+                            <a id="Home" href="#Home" data-destination="/pages/home.html">
+                                Home
                             </a>
                         </div>
-                    </div>
 
-                    <div id="menuItem5" class="menuItem markable">
-                        <a id="Kalender" href="#Kalender"
-                           data-destination="/pages/kalender.html">
-                            Kalender
-                        </a>
-                    </div>
-
-                    <div id="menuItem6" class="menuItem">
-                        <a class="markable mainMenuItem" href="#ContactContactgegevens">
-                            Contact
-                        </a>
-                        <div class="submenu" id="submenu6">
-                            <a id="ContactContactgegevens" class="submenuItem markable"
-                               href="#ContactContactgegevens"
-                               data-destination="/pages/contact/contactgegevens.html">
-                                Contactgegevens
+                        <div id="menuItem2" class="menuItem">
+                            <a class="markable mainMenuItem">
+                                Vereniging
                             </a>
-                            <a id="ContactContactformulier" class="submenuItem markable"
-                               href="#ContactContactformulier"
-                               data-destination="/pages/contact/contactformulier.html">
-                                Contactformulier
-                            </a>
-                            <!--Aan het eind van deze regel (zonder spaties) "- - >"
-                            verwijderen om aanmeldformulier te verbergen-->
-                            <a id="ContactAanmeldenActiviteit" class="submenuItem markable"
-                               href="#ContactAanmeldenActiviteit"
-                               data-destination="/pages/contact/aanmeldenActiviteit.html">
-                                Aanmelden Lente-intROW 2017
-                            </a>
-                            <!---->
+                            <div class="submenu" id="submenu2">
+                                <a id="VerenigingAlgemeen" class="submenuItem markable"
+                                   href="#VerenigingAlgemeen"
+                                   data-destination="/pages/vereniging/algemeen.html">
+                                    Algemeen
+                                </a>
+                                <a id="VerenigingOntstaan" class="submenuItem markable"
+                                   href="#VerenigingOntstaan"
+                                   data-destination="/pages/vereniging/ontstaan.html">
+                                    Ontstaan
+                                </a>
+                                <a id="VerenigingBestuur"
+                                   class="submenuItem markable" href="#VerenigingBestuur"
+                                   data-destination="/pages/vereniging/bestuur.html">
+                                    Bestuur
+                                </a>
+                                <a id="VerenigingSponsoren" class="submenuItem markable"
+                                   href="#VerenigingSponsoren"
+                                   data-destination="/pages/vereniging/partners.html">
+                                    Partners
+                                </a>
+                                <a id="VerenigingWordLid" class="submenuItem markable"
+                                   href="#VerenigingWordLid"
+                                   data-destination="/pages/vereniging/wordLid.html">
+                                    Word lid!
+                                </a>
+                                <!--Verwijder de laatste drie tekens van deze regel om de pagina over de fyli te verbergen-->
+                                <a id="Fyli" class="submenuItem markable"
+                                   href="#Fyli"
+                                   data-destination="/pages/vereniging/fyli.html">
+                                   Fylí Agon
+                                </a>
+                                <!--Verwijder de eerste vier tekens van deze regel om de pagina over de fyli te verbergen-->
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="menuItem7" class="menuItem markable">
-                        <a id="Login" href="#Login" data-destination="/app/login">
-                            Log in
-                        </a>
+                        <div id="menuItem3" class="menuItem markable">
+                            <a id="Roeien" href="#Roeien"
+                               data-destination="/pages/roeien.html">
+                                Roeien
+                            </a>
+                        </div>
+
+                        <div id="menuItem4" class="menuItem">
+                            <a class="markable mainMenuItem">
+                                Media
+                            </a>
+                            <div class="submenu" id="submenu4">
+                                <a id="MediaFotos" class="submenuItem markable"
+                                   href="#MediaFotos"
+                                   data-destination="/pages/media/fotos.html">
+                                    Foto's
+                                </a>
+                                <a id="MediaVideos" class="submenuItem markable"
+                                   href="#MediaVideos"
+                                   data-destination="/pages/media/videos.html">
+                                    Video's
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="menuItem5" class="menuItem markable">
+                            <a id="Kalender" href="#Kalender"
+                               data-destination="/pages/kalender.html">
+                                Kalender
+                            </a>
+                        </div>
+
+                        <div id="menuItem6" class="menuItem">
+                            <a class="markable mainMenuItem">
+                                Contact
+                            </a>
+                            <div class="submenu" id="submenu6">
+                                <a id="ContactContactgegevens" class="submenuItem markable"
+                                   href="#ContactContactgegevens"
+                                   data-destination="/pages/contact/contactgegevens.html">
+                                    Contactgegevens
+                                </a>
+                                <a id="ContactContactformulier" class="submenuItem markable"
+                                   href="#ContactContactformulier"
+                                   data-destination="/pages/contact/contactformulier.html">
+                                    Contactformulier
+                                </a>
+                                <!--Aan het eind van deze regel (zonder spaties) "- - >"
+                                verwijderen om aanmeldformulier te verbergen-->
+                                <a id="ContactAanmeldenActiviteit" class="submenuItem markable"
+                                   href="#ContactAanmeldenActiviteit"
+                                   data-destination="/pages/contact/aanmeldenActiviteit.html">
+                                    Aanmelden Lente-intROW 2017
+                                </a>
+                                <!---->
+                            </div>
+                        </div>
+
+                        <div id="menuItem7" class="menuItem markable">
+                            <a id="Login" href="#Login" data-destination="/app/login">
+                                Log in
+                            </a>
+                        </div>
                     </div>
                 </nav>
 
                 <div id="socialMediaBar">
                     <hr>
-                    <a href="mailto:info@srvagon.nl">
+                    <a href="mailto:info@srvagon.nl" id ="emailButton">
                         <img src="/images/email.png" alt="E-mail" class="linkImage" />
                     </a>
                     <a href="https://www.facebook.com/srvagon" target="_blank">
@@ -161,45 +162,72 @@
                     <a href="https://www.youtube.com/channel/UCiSKVJvDEqyVRIjFJ_pX2Yw" target="_blank">
                         <img src="/images/youtube.png" alt="YouTube" class="linkImage" />
                     </a>
-                    <p class="smallerFont">Almeerse Studenten Roeivereniging Agon</p>
-                    <img src="/favicon.ico" alt="Agon schild" id="shield" />
+                    <p class="smallerFont" id="nameText">Almeerse Studenten Roeivereniging Agon</p>
+                    <img src="/favicon.ico" alt="Agon schild" id="shield" class="linkImage" />
                 </div>
             </div>
-            
-            <div id="onlyIfScriptNotSupported">
-                <p>
-                    Uw browser ondersteunt geen JavaScript en deze website kan
-                    daarom niet juist worden weergegeven. Gebruik alstublieft de
-                    nieuwste versie van Google Chrome, Microsoft Edge, Microsoft
-                    Internet Explorer, Mozilla Firefox of Opera en staat u het
-                    uitvoeren van scripts toe. U kunt ook proberen via de links
-                    hieronder subpagina's van deze website te benaderen die
-                    mogelijk wel kunnen worden weergegeven in uw browser.
-                </p>
-                
-                <p>
-                    N.B. Mogelijk werken links op de subpagina's niet in een
-                    browser. Keert u dan terug naar deze pagina om naar een
-                    andere pagina te navigeren.
-                </p>
-                
-                <nav>
-                    <a href="/pages/welcome.html">Welkom</a>
-                    <a href="/pages/home.html">Home</a>
-                    <a href="/pages/kalender.html">Kalender</a>
-                    <a href="/pages/roeien.html">Roeien</a>
-                    <a href="/pages/contact/aanmeldenActiviteit.html">
-                        Contact - Aanmelden activiteit
-                    </a>
-                    <a href="/pages/contact/contactformulier.html">
-                        Contact - Contactformulier
-                    </a>
-                    <a href="/pages/contact/contactgegevens.html">
-                        Contact - Contactgegevens
-                    </a>
-                </nav>
-            </div>
-            
+
+        </div>
+
+        <div id="onlyIfScriptNotSupported">
+            <p>
+                Uw browser ondersteunt geen JavaScript en deze website kan
+                daarom niet juist worden weergegeven. Gebruik alstublieft de
+                nieuwste versie van Google Chrome, Microsoft Edge, Microsoft
+                Internet Explorer, Mozilla Firefox of Opera en staat u het
+                uitvoeren van scripts toe. U kunt ook proberen via de links
+                hieronder subpagina's van deze website te benaderen die
+                mogelijk wel kunnen worden weergegeven in uw browser.
+            </p>
+
+            <p>
+                N.B. Mogelijk werken links op de subpagina's niet in uw
+                browser. Keert u dan terug naar deze pagina om naar een
+                andere pagina te navigeren.
+            </p>
+
+            <nav>
+                <a href="/pages/welcome.html">Welkom</a><br />
+                <a href="/pages/home.html">Home</a><br />
+                <a href="/pages/vereniging/algemeen.html>">
+                    Vereniging - Algemeen
+                </a><br />
+                <a href="/pages/vereniging/ontstaan.html>">
+                    Vereniging - Ontstaan
+                </a><br />
+                <a href="pages/vereniging/bestuur.html>">
+                    Vereniging - Bestuur
+                </a><br />
+                <a href="/pages/vereniging/partners.html>">
+                    Vereniging - Partners
+                </a><br />
+                <a href="/pages/vereniging/partners.html>">
+                    Vereniging - Partners
+                </a><br />
+                <a href="/pages/vereniging/wordLid.html>">
+                    Vereniging - Word lid
+                </a><br />
+                <a href="/pages/vereniging/fyli.html>">
+                    Fyl&iacute; Agon
+                </a><br />
+                <a href="/pages/roeien.html">Roeien</a><br />
+                <a href="/pages/media/fotos.html">
+                    Media - Foto's
+                </a><br />
+                <a href="/pages/media/videos.html">
+                    Media - Video's
+                </a>
+                <a href="/pages/kalender.html">Kalender</a><br />
+                <a href="/pages/contact/aanmeldenActiviteit.html">
+                    Contact - Aanmelden activiteit
+                </a><br />
+                <a href="/pages/contact/contactformulier.html">
+                    Contact - Contactformulier
+                </a><br />
+                <a href="/pages/contact/contactgegevens.html">
+                    Contact - Contactgegevens
+                </a>
+            </nav>
         </div>
         
     </body>

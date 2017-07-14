@@ -1,5 +1,13 @@
 @import url(contentBase.css);
 
-.partnerLogo {
-    max-width: 10%;
+@media only screen and (min-width: 900px) {
+    .partnerLogo {
+        max-width: 10%;
+    }
+}
+
+@media not screen and (min-width: 900px) {
+    .partnerLogo {
+        max-width: 100%;
+    }
 }

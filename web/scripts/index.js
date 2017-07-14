@@ -1,4 +1,10 @@
 var activeButtons = [];
+var menuItemsWithSubMenus = ["2","4","6"];
+var windowWidth;
+var windowHeight;
+
+var socialMediaBarShouldBeVisible = false;
+var socialMediaBarIsErroneous = false;
 
 function markThis() {mark(this);}
 function unmarkThis() {unmark(this);}
@@ -21,18 +27,77 @@ function unmarkMenuItem(menuItem) {
 }
 
 function init() {
+    window.addEventListener("resize", function() {
+        //TODO fix automatic reloading by more subtle approach
+        if (windowWidth !== window.clientWidth
+                || windowHeight !== window.clientHeight) {
+            window.location.reload();
+            windowWidth = window.clientWidth;
+            windowHeight = window.clientHeight;
+        }
+    });
     document.getElementById("onlyIfScriptNotSupported").style.display = "none";
     document.getElementById("onlyIfScriptSupported").style.display = "block";
+    
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 0) {
+            socialMediaBarIsErroneous = true;
+            var socialMediaBar = document.getElementById("socialMediaBar");
+            socialMediaBar.style.display = "none";
+        }
+        else {
+            socialMediaBarIsErroneous = false;
+            if (socialMediaBarShouldBeVisible) {
+                socialMediaBar.style.display = "block";
+            }
+        }
+    });
+    
     var mainFrame = document.getElementById("mainFrame");
-    mainFrame.src = "/pages/welcome.html";
-    addEventListener("keydown", goToHomeOnDownArrow);
-    document.getElementById("content").addEventListener("wheel", goToHomeOnScrollDown);
-    addEventListener("hashchange", navigate);
-    addMarkOnHover();
+    
+    if (isWideScreen()) {
+        mainFrame.src = "/test/pages/welcome.html";
+        addEventListener("keydown", goToHomeOnDownArrow);
+        document.getElementById("content").addEventListener("wheel", goToHomeOnScrollDown);
+        addMarkOnHover();
+        addEventListener("hashchange", navigate);
+    }
+    else {
+        mainFrame.src = "/pages/home.html";
+        var socialMediaBar = document.getElementById("socialMediaBar");
+        document.getElementById("mainFrame").style.height = "95%";
+        socialMediaBarShouldBeVisible = true;
+        if (! socialMediaBarIsErroneous) {
+            socialMediaBar.style.display = "block";
+        }
+        //TODO uncomment if necessary socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
+        addEventListener("hashchange", closeHamburgerMenuAndNavigate);
+    }
     addSubmenus();
     mainFrame.addEventListener("load", resizeMenu);
     initMenu();
+    windowWidth = window.clientWidth;
+    windowHeight = window.clientHeight;
     navigate();
+}
+
+//Source: Rustam, November 5, 2012, http://stackoverflow.com/questions/11974262/how-to-clone-or-re-dispatch-dom-events
+function cloneObject(obj) {
+    if (obj === null || typeof(obj) !== 'object') {
+        return obj;
+    }
+    else {
+        var clone = new obj.constructor();
+        for(var key in obj) {
+            clone[key] = cloneObject(obj[key]);
+        }
+        return clone;
+    }
+}
+
+function isWideScreen() {
+    var mediaQuery = window.matchMedia("only screen and (min-width: 900px)");
+    return mediaQuery.matches;
 }
 
 function addMarkOnHover() {
@@ -51,17 +116,23 @@ function addMarkOnHover() {
 }
 
 function addSubmenus() {
-    var menuItem2 = document.getElementById("menuItem2");
-    menuItem2.addEventListener("mouseover", function() {show("submenu2");});
-    menuItem2.addEventListener("mouseout", function() {hide("submenu2");});
-    
-    var menuItem4 = document.getElementById("menuItem4");
-    menuItem4.addEventListener("mouseover", function() {show("submenu4");});
-    menuItem4.addEventListener("mouseout", function() {hide("submenu4");});
-    
-    var menuItem6 = document.getElementById("menuItem6");
-    menuItem6.addEventListener("mouseover", function() {show("submenu6");});
-    menuItem6.addEventListener("mouseout", function() {hide("submenu6");});
+    for (var i = 0; i < menuItemsWithSubMenus.length; i++) {
+        var menuItemIdNumber = menuItemsWithSubMenus[i];
+        var menuItem = document.getElementById("menuItem" + menuItemIdNumber);
+        if (isWideScreen()) {
+            var showHandle = function(id) {show(id);};
+            var hideHandle = function(id) {hide(id);};
+            menuItem.addEventListener("mouseover",
+                showHandle.bind(this, "submenu" + menuItemIdNumber));
+            menuItem.addEventListener("mouseout",
+                hideHandle.bind(this, "submenu" + menuItemIdNumber));
+        }
+        else {
+            var toggleHandle = function(id) {toggle(id);};
+            menuItem.addEventListener("click",
+                toggleHandle.bind(this, "submenu" + menuItemIdNumber));
+        }
+    }
 }
 
 function show(id) {
@@ -69,6 +140,28 @@ function show(id) {
 }
 function hide(id) {
     document.getElementById(id).style.display = "none";
+}
+
+function toggle(id) {
+    var element = document.getElementById(id);
+    var oldDisplay = getComputedStyle(element).display;
+    element.style.display = oldDisplay === "none" ? "block" : "none";
+}
+
+function toggleHamburger() {
+    var actualMenuStyle = document.getElementById("actualMenu").style;
+    var actualMenuOldDisplay = actualMenuStyle.display;
+    actualMenuStyle.display = actualMenuOldDisplay === "none" ? "inline-block" : "none";
+    
+    document.getElementById("menu").style.backgroundColor =
+            actualMenuOldDisplay === "none"
+            ? "rgba(27, 46, 161, 1)"
+            : "rgba(27, 46, 161, 0.7)";
+}
+
+function closeHamburger() {
+    document.getElementById("actualMenu").style.display = "none";
+    document.getElementById("menu").style.backgroundColor = "rgba(27, 46, 161, 0.7)";
 }
 
 function resizeMenu() {
@@ -85,6 +178,25 @@ function initMenu() {
     var height = menuItem1.clientHeight;
     var menu = document.getElementById("menu");
     menu.style.height = height + "px";
+    if (isWideScreen()) {
+        document.getElementById("hamburgerButton").style.display = "none";
+    }
+    else {
+        var menuHeight = document.getElementById("menuItem1").clientHeight;
+        var buttonHeight = Math.round(0.9 * menuHeight);
+        var padding = Math.floor((menuHeight - buttonHeight) / 2);
+        var button = document.getElementById("hamburgerButtonIcon");
+        button.style.height = buttonHeight + "px";
+        button.style.paddingTop = padding + "px";
+        button.style.paddingRight = padding + "px";
+        document.getElementById("actualMenu").style.display = "none";
+        document.getElementById("hamburgerButtonLink").style.height = menuHeight + "px";
+    }
+}
+
+function closeHamburgerMenuAndNavigate() {
+    closeHamburger();
+    navigate();
 }
 
 function navigate() {
@@ -154,9 +266,18 @@ function leaveWelcome() {
     document.getElementById("content").removeEventListener("wheel", goToHomeOnScrollDown);
     document.getElementById("mainFrame").style.height = "95%";
     var socialMediaBar = document.getElementById("socialMediaBar");
-    socialMediaBar.style.display = "block";
-    socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
+    if (!socialMediaBarIsErroneous) {
+        socialMediaBar.style.display = "block";
+    }
+    socialMediaBarShouldBeVisible = true;
+    //TODO uncomment if necessary socialMediaBar.style.height = (socialMediaBar.clientHeight - 1) + "px";
     
+    var emailButton = document.getElementById("emailButton");
+    var nameText = document.getElementById("nameText");
+    var shield = document.getElementById("shield");
+    if (emailButton.offsetTop < shield.offsetTop) {
+        nameText.style.display = "none";
+    }
 }
 
 function inactivateActiveButtons() {

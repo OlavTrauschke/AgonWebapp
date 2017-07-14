@@ -1,34 +1,51 @@
 @import url(base.css);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans);
 
-body {
-    background-color: #1B2EA1;
+html {
+    height: 100%;
 }
 
-@media only screen and (min-width: 900px){
-    #temporaryMobileContent {
-        display: none;
+body {
+    background-color: #1B2EA1;
+    overflow: hidden;
+}
+
+.menuItem {
+    padding: 1% 0% 1% 0%;
+    float: left;
+}
+
+@media only screen and (min-width: 900px) {
+    .menuItem {
+        width: 14.3%;
+    }
+    
+    #menuItem7 {
+        width: 14.2%;
+    }
+    
+    nav {
+        text-align: center;
     }
 }
 
 @media not screen and (min-width: 900px) {
-    #content {
+    .menuItem {
+        width: 100%;
+    }
+    
+    #nameText {
         display: none;
     }
-}
-
-#temporaryMobileContent {
-    font-size: large;
-    font-weight: bold;
-    color: #FCD100;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 40%;
+    
+    #actualMenu {
+        background-color: rgb(27, 46, 161);
+        padding-left: 5%;
+    }
 }
 
 nav {
     width: 100%;
-    text-align: center;
     position: absolute;
     font-family: "Myriad Pro", "PT Sans", Helvetica, sans-serif;
     font-size: x-large;
@@ -46,41 +63,6 @@ nav a {
     text-decoration: inherit;
     display: block;
     outline-style: none;
-}
-
-.menuItem {
-    width: 14.3%;
-    padding: 1% 0% 1% 0%;
-    position: absolute;
-}
-
-#menuItem1 {
-    left: 0%;
-}
-
-#menuItem2 {
-    left: 14.3%;
-}
-
-#menuItem3 {
-    left: 28.6%;
-}
-
-#menuItem4 {
-    left: 42.9%;
-}
-
-#menuItem5 {
-    left: 57.2%;
-}
-
-#menuItem6 {
-    left: 71.5%;
-}
-
-#menuItem7 {
-    left: 85.8%;
-    width: 14.2%;
 }
 
 .submenu {
@@ -120,6 +102,7 @@ nav a {
 .linkImage {
     float: left;
     margin-left: 1%;
+    max-width: 25%;
 }
 
 #shield {
@@ -146,4 +129,8 @@ hr {
 
 #onlyIfScriptNotSupported nav {
     position: relative;
+}
+
+#hamburgerButton {
+    float: right;
 }

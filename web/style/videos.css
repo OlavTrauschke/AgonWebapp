@@ -1,8 +1,19 @@
 @import url(contentBase.css);
 
 video {
-    width: 48.5%;
     margin: 0% 0% 1% 1%;
+}
+
+@media only screen and (min-width: 900px) {
+    video {
+        width: 48.5%;
+    }
+}
+
+@media not screen and (min-width: 900px) {
+    video {
+        width: 100%;
+    }
 }
 
 .clearFloat {
