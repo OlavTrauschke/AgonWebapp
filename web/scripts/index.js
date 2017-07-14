@@ -56,7 +56,7 @@ function init() {
     var mainFrame = document.getElementById("mainFrame");
     
     if (isWideScreen()) {
-        mainFrame.src = "/test/pages/welcome.html";
+        mainFrame.src = "/pages/welcome.html";
         addEventListener("keydown", goToHomeOnDownArrow);
         document.getElementById("content").addEventListener("wheel", goToHomeOnScrollDown);
         addMarkOnHover();
