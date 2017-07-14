@@ -1,7 +1,7 @@
 var activeButtons = [];
 var menuItemsWithSubMenus = ["2","4","6"];
-var windowWidth;
-var windowHeight;
+var documentWidth;
+var documentHeight;
 
 var socialMediaBarShouldBeVisible = false;
 var socialMediaBarIsErroneous = false;
@@ -29,11 +29,11 @@ function unmarkMenuItem(menuItem) {
 function init() {
     window.addEventListener("resize", function() {
         //TODO fix automatic reloading by more subtle approach
-        if (windowWidth !== window.clientWidth
-                || windowHeight !== window.clientHeight) {
+        if (documentWidth !== document.documentElement.clientWidth
+                || documentHeight !== document.documentElement.clientHeight) {
             window.location.reload();
-            windowWidth = window.clientWidth;
-            windowHeight = window.clientHeight;
+            documentWidth = document.documentElement.clientWidth;
+            documentHeight = document.documentElement.clientWidth;
         }
     });
     document.getElementById("onlyIfScriptNotSupported").style.display = "none";
