@@ -1,7 +1,6 @@
 var activeButtons = [];
 var menuItemsWithSubMenus = ["2","4","6"];
 var documentWidth;
-var documentHeight;
 
 var socialMediaBarShouldBeVisible = false;
 var socialMediaBarIsErroneous = false;
@@ -27,15 +26,6 @@ function unmarkMenuItem(menuItem) {
 }
 
 function init() {
-    window.addEventListener("resize", function() {
-        //TODO fix automatic reloading by more subtle approach
-        if (documentWidth !== document.documentElement.clientWidth
-                || documentHeight !== document.documentElement.clientHeight) {
-            window.location.reload();
-            documentWidth = document.documentElement.clientWidth;
-            documentHeight = document.documentElement.clientWidth;
-        }
-    });
     document.getElementById("onlyIfScriptNotSupported").style.display = "none";
     document.getElementById("onlyIfScriptSupported").style.display = "block";
     
@@ -79,6 +69,16 @@ function init() {
     windowWidth = window.clientWidth;
     windowHeight = window.clientHeight;
     navigate();
+    
+    documentWidth = document.documentElement.clientWidth;
+    
+    window.addEventListener("resize", function() {
+        if (documentWidth !== document.documentElement.clientWidth) {
+            //TODO layout in a more subtle way
+            window.location.reload();
+            documentWidth = document.documentElement.clientWidth;
+        }
+    });
 }
 
 //Source: Rustam, November 5, 2012, http://stackoverflow.com/questions/11974262/how-to-clone-or-re-dispatch-dom-events
