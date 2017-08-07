@@ -37,3 +37,11 @@ function goToAanmeldingActiviteit() {
     window.parent.goToAanmeldingActiviteit();
     return false;
 }
+
+function goToAanmeldingActiviteit2() {
+    if (window.top === window.self) {
+        return true;
+    }
+    window.parent.goToAanmeldingActiviteit2();
+    return false;
+}

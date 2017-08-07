@@ -331,3 +331,7 @@ function goToVideos() {
 function goToAanmeldingActiviteit() {
     window.location.hash = "ContactAanmeldenActiviteit";
 }
+
+function goToAanmeldingActiviteit2() {
+    window.location.hash = "ContactAanmeldenActiviteit2";
+}
