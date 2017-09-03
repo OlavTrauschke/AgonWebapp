@@ -36,6 +36,12 @@ h2 {
     color: grey;
 }
 
+h3 {
+    font-family: "Myriad Pro", "PT Sans", Helvetica, sans-serif;
+    font-size: small;
+    color: grey;
+}
+
 a {
     /*links in Agon-blauw*/
     color: #1B2EA1;
