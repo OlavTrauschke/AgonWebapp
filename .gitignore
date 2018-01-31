@@ -5,5 +5,5 @@
 /test
 /build.xml
 /web/videos
-/dist/app.war
+/dist/ROOT.war
 /dist/javadoc

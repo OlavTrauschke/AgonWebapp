@@ -1,5 +1,5 @@
 https://srvagon.nl
-https://srvagon.nl/app/login
+https://srvagon.nl/login
 https://srvagon.nl/pages/home.html
 https://srvagon.nl/pages/kalender.html
 https://srvagon.nl/pages/roeien.html
